@@ -26,7 +26,7 @@ class SearchController extends HomeController {
 						}
 					}					
 					$tpl		= 'songs';
-	    	 		$typename 	= "音乐";
+	    	 		$typename 	= "音频";
 	   			break;
 				
 				case 2	:
@@ -39,7 +39,7 @@ class SearchController extends HomeController {
 							$v['cover_url'] 	= !empty($v['cover_url'])?$v['cover_url']:"/Public/static/images/album_cover.png";			
 						}
 					}
-	    	 		$typename 	= "艺人";
+	    	 		$typename 	= "讲员";
 	   			break;
 	    		
 	    		case 3	:
