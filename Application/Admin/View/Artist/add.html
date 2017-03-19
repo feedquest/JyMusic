@@ -1,12 +1,12 @@
 <extend name="Public/base"/>
 <block name="content">
-<h3>艺术家管理</h3>
+<h3>讲员管理</h3>
 <div class="panel panel-default">
-	<div class="panel-heading"><{:isset($data['id'])?'编辑':'新增'}>艺术家</div>
+	<div class="panel-heading"><{:isset($data['id'])?'编辑':'新增'}>讲员</div>
  	<div class="panel-body">
     	<form class="form-horizontal" enctype="multipart/form-data" action="<{:U()}>" name="songs"  method="post">																	
     		<div class="form-group">	
-    			<label class="col-sm-2 control-label">艺术家名称</label>
+    			<label class="col-sm-2 control-label">讲员名称</label>
     			<div class="col-sm-3">
     				<input  type="text" name="name" class="form-control" value="<{$data.name|default=''}>" >   				
     			</div>

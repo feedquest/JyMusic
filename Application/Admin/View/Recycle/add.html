@@ -3,13 +3,13 @@
 	<link rel="stylesheet" href="__JS__/colorbox/colorbox.min.css">
 </block>
 <block name="content">
-<h3>歌曲管理</h3>
+<h3>音频管理</h3>
 <div class="panel panel-default">
-	<div class="panel-heading"><{:isset($data['id'])?'编辑':'新增'}>歌曲</div>
+	<div class="panel-heading"><{:isset($data['id'])?'编辑':'新增'}>音频</div>
  	<div class="panel-body">
         <form class="form-horizontal" enctype="multipart/form-data" action="<{:U()}>" name="songs"  method="post">	
        		<div class="form-group">	
-				<label class=" col-sm-2 control-label">歌曲名称</label>
+				<label class=" col-sm-2 control-label">音频名称</label>
 				<div class="col-sm-3">
 					<input  type="text"  name="name" value="<{$data.name|default=''}>" class="form-control">					
 				</div>
@@ -17,7 +17,7 @@
 			</div>	
 
 			<div class="form-group">	
-				<label class="col-sm-2 control-label">所属曲风</label>
+				<label class="col-sm-2 control-label">所属讲道类型</label>
 				<div class="col-sm-3">
 					<select name="genre_id" class="form-control">
 	        		<volist name=":get_genre_tree()" id="genre">	        			
@@ -28,7 +28,7 @@
 			</div>	
 
     		<div class="form-group">	
-    			<label class="col-sm-2 control-label">所属艺术家</label>
+    			<label class="col-sm-2 control-label">所属讲员</label>
     			<div class="col-sm-3">
     				<div class="input-group">
     					<input type="text" class="hide" id="artist-id" name="artist_id" value="<{$data.artist_id|default='0'}>">	
@@ -55,7 +55,7 @@
     			<div class="col-sm-3">
    					<div class="input-group">
     					<input type="text"  class="hide" name="album_id" id="album-id" value="<{$data.album_id|default='0'}>">
-    					<input type="text" class="form-control"  name="album_name" id="album-name" value="<{$data.album_name|default='单曲'}>">
+    					<input type="text" class="form-control"  name="album_name" id="album-name" value="<{$data.album_name|default='音频'}>">
 						<a href="#" class="input-group-addon" id="f-a-btn" rel="album">
                          	<span class="fa-search fa"></span>
                     	</a>
@@ -77,7 +77,7 @@
 			</div>	
     		    			   
     		<div class="form-group">	
-    			<label class="col-sm-2 control-label">歌曲地址</label>
+    			<label class="col-sm-2 control-label">音频地址</label>
     			<div class="col-sm-5">
     				<div class="input-group">
     					<input type="text" class="form-control" name="music_url"  id="songs_url"  value="<{$data.music_url|default=$Server['listenPath']}>">
@@ -103,7 +103,7 @@
     		</div>      		   	
     		 		
     		<div class="form-group">
-				<label class="col-sm-2 control-label">歌曲封面</label>
+				<label class="col-sm-2 control-label">音频封面</label>
 				<div class="col-sm-3">
 					<input type="file" id="upload_picture">
 					<input type="hidden" id="cover_id" name="cover_id" value="<{$data.cover_id}>"/>
@@ -142,7 +142,7 @@
 					</div>
 					</if>
                 </div>
-                <span class="help-block">串烧歌曲不建议生成！</span>				
+                <span class="help-block">串烧音频不建议生成！</span>				
     		</div-->	
 			<div class="form-group">						
     			<label class="col-sm-2 control-label ">试听次数</label>

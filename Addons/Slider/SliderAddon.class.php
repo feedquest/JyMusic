@@ -101,7 +101,7 @@ use Think\Db;
 			//dump($param);
         	if($param['widget'] == 'Slider'){
         		$list = D('Addons://Slider/Slider')->SliderList();
-        		$songsCount  =  M('Songs')->count();//获取歌曲总数
+        		$songsCount  =  M('Songs')->count();//获取音频总数
 				$this->assign('songsCount',$songsCount);
         		$this->assign('addons_config', $this->getConfig());
 				$this->assign('list',$list);

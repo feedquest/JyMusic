@@ -1,7 +1,7 @@
 <extend name="Public/base"/>
 <block name="content">
-<h3 class="col-md-3">歌曲管理</h3>
-<i>上传歌曲到<{:C('SONGS_IMPORT_PATH')}>！<a href="http://bbs.jyuu.cn/forum.php?mod=viewthread&tid=75&extra=" target="_blank">点击此处查看教程</a></i>
+<h3 class="col-md-3">音频管理</h3>
+<i>上传音频到<{:C('SONGS_IMPORT_PATH')}>！<a href="http://bbs.jyuu.cn/forum.php?mod=viewthread&tid=75&extra=" target="_blank">点击此处查看教程</a></i>
 <form id="import-form" method="post" class="form-horizontal" action="<{:U('songs/fileImport')}>"> 
 <div class="row">	
 	<div class="col-lg-12">
@@ -16,7 +16,7 @@
 	     	<div class="panel-body">     		
 	     		<div class="col-lg-3">      
 		    		<div class="form-group">	
-		    			<label class="col-sm-4 control-label">所属艺术家</label>
+		    			<label class="col-sm-4 control-label">所属讲员</label>
 		    			<div class="col-sm-8">
 		    				<div class="input-group">
 		    					<input type="text" class="hide" id="artist-id" name="artist_id" value="0">	
@@ -41,7 +41,7 @@
 		    			</div>	
 		    		</div>
 					<div class="form-group">
-						<label class="col-sm-4 control-label">所属曲风</label>
+						<label class="col-sm-4 control-label">所属讲道类型</label>
 						<div class="col-sm-8">
 							<select name="genre_id" class="form-control">					
 							<volist name=":get_genre_tree()" id="genre">	        			
@@ -116,7 +116,7 @@
 								<label class="inline mr-sm">
 									<input type="checkbox" name="down_rule[group][]" value="3" <if condition="empty($data['down_rule']) OR in_array('3', $data['down_rule']['group']) "> checked="true"</if> >
 									<span class="fa fa-check"></span>
-									认证音乐人
+									认证讲员
 								</label> 
 							</div>
 						</div>											
@@ -154,8 +154,8 @@
 <div class="row">
     <div class="col-lg-12">
     	<div class="panel panel-default">
-       		<div class="panel-heading ">批量导入歌曲
-       			<a id="createGenreDir" class="btn btn-labeled btn-success " href="javascript:;">批量创建曲风目录</a>
+       		<div class="panel-heading ">批量导入音频
+       			<a id="createGenreDir" class="btn btn-labeled btn-success " href="javascript:;">批量创建讲道类型目录</a>
        			<div class="btn-group pull-right">
        				<a class="btn btn-labeled" href="<{:U('songs/bulkImport',array('type'=>'refresh'))}>">刷新</a>
 	       			<a id="import" class="btn btn-labeled btn-success " href="javascript:;">全部导入</a>

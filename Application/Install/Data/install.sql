@@ -278,14 +278,14 @@ CREATE TABLE IF NOT EXISTS `jy_artist_type` (
 --
 
 INSERT INTO `jy_artist_type` (`id`, `name`, `description`, `add_time`, `update_time`, `status`) VALUES
-(1, '华语男歌手', '', 1342360846, 0, 1),
-(2, '华语女歌手', '', 1342360846, 0, 1),
+(1, '华语男讲员', '', 1342360846, 0, 1),
+(2, '华语女讲员', '', 1342360846, 0, 1),
 (3, '华语组合', '', 1342360846, 0, 1),
-(4, '日韩男歌手', '', 1342360846, 0, 1),
-(5, '日韩女歌手', '', 1342360846, 0, 1),
+(4, '日韩男讲员', '', 1342360846, 0, 1),
+(5, '日韩女讲员', '', 1342360846, 0, 1),
 (6, '日韩组合', '', 1342360846, 0, 1),
-(7, '欧美男歌手', '', 1342360846, 0, 1),
-(8, '欧美女歌手', '', 1342360846, 0, 1),
+(7, '欧美男讲员', '', 1342360846, 0, 1),
+(8, '欧美女讲员', '', 1342360846, 0, 1),
 (9, '欧美组合', '', 1342360846, 0, 1);
 
 -- --------------------------------------------------------
@@ -442,7 +442,7 @@ INSERT INTO `jy_auth_group` (`id`, `module`, `type`, `title`, `description`, `st
 (4, 'home', 1, '普通会员', '注册的普通会员', 1, ''),
 (5, 'home', 1, '收费会员', '你懂得', 1, ''),
 (3, 'admin', 1, '用户管理组', '负责管理用户', 1, ''),
-(6, 'user', 1, '认证音乐人', '你懂得', 1, '');
+(6, 'user', 1, '认证讲员', '你懂得', 1, '');
 
 -- --------------------------------------------------------
 
@@ -698,7 +698,7 @@ INSERT INTO `jy_auth_rule` (`id`, `module`, `type`, `name`, `title`, `status`, `
 (215, 'admin', 1, 'Admin/Category/operate/type/move', '移动', 1, ''),
 (216, 'admin', 1, 'Admin/Category/operate/type/merge', '合并', 1, ''),
 (217, 'admin', 1, 'Admin/think/lists', '数据列表', 1, ''),
-(218, 'admin', 1, 'Admin/Songs/index', '歌曲管理', 1, ''),
+(218, 'admin', 1, 'Admin/Songs/index', '音频管理', 1, ''),
 (219, 'admin', 1, 'Admin/Songs/add', '添加', 1, ''),
 (220, 'admin', 1, 'Admin/Album/add', '添加', 1, ''),
 (221, 'admin', 1, 'Admin/Singer/add', '添加', -1, ''),
@@ -712,30 +712,30 @@ INSERT INTO `jy_auth_rule` (`id`, `module`, `type`, `name`, `title`, `status`, `
 (229, 'admin', 2, 'Admin/Songs/index', '音乐', 1, ''),
 (230, 'admin', 1, 'Admin/Songs/del', '删除', 1, ''),
 (231, 'admin', 1, 'Admin/Album/mod', '修改', 1, ''),
-(232, 'admin', 1, 'Admin/Singer/index', '歌手管理', -1, ''),
+(232, 'admin', 1, 'Admin/Singer/index', '讲员管理', -1, ''),
 (233, 'admin', 1, 'Admin/Singer/del', '删除', -1, ''),
 (234, 'admin', 1, 'Admin/Genre/del', '删除', 1, ''),
 (235, 'admin', 1, 'Admin/AlbumType/mod', '修改', 1, ''),
 (236, 'admin', 1, 'Admin/SingerType/mod', '修改', -1, ''),
 (237, 'admin', 1, 'Admin/Songs/clear', '清空', -1, ''),
 (238, 'admin', 1, 'Admin/Album/del', '删除', 1, ''),
-(239, 'admin', 1, 'Admin/Genre/index', '曲风管理', 1, ''),
+(239, 'admin', 1, 'Admin/Genre/index', '讲道类型管理', 1, ''),
 (240, 'admin', 1, 'Admin/AlbumType/del', '删除', 1, ''),
 (241, 'admin', 1, 'Admin/SingerType/del', '删除', -1, ''),
 (242, 'admin', 1, 'Admin/AlbumType/index', '专辑类型', 1, ''),
-(243, 'admin', 1, 'Admin/SingerType/index', '歌手类型管理', -1, ''),
+(243, 'admin', 1, 'Admin/SingerType/index', '讲员类型管理', -1, ''),
 (244, 'admin', 1, 'Admin/Config/cache', '缓存静态', 1, ''),
 (245, 'admin', 1, 'Admin/Songs/bulkImport', '批量导入', 1, ''),
-(246, 'admin', 1, 'Admin/songs/audit', '审核歌曲', 1, ''),
+(246, 'admin', 1, 'Admin/songs/audit', '审核音频', 1, ''),
 (247, 'admin', 1, 'Admin/Artist/add', '添加', 1, ''),
 (248, 'admin', 1, 'Admin/Message/index', '信息管理', 1, ''),
 (249, 'admin', 1, 'Admin/Message/add', '添加信息', 1, ''),
 (250, 'admin', 1, 'Admin/Server/add', '添加服务器', 1, ''),
 (251, 'admin', 1, 'Admin/Server/mod', '修改服务器', 1, ''),
 (252, 'admin', 1, 'Admin/Artist/mod', '修改', 1, ''),
-(253, 'admin', 1, 'Admin/Artist/index', '艺术家管理', 1, ''),
+(253, 'admin', 1, 'Admin/Artist/index', '讲员管理', 1, ''),
 (254, 'admin', 1, 'Admin/Artist/del', '删除', 1, ''),
-(255, 'admin', 1, 'Admin/ArtistType/index', '艺术家类型', 1, ''),
+(255, 'admin', 1, 'Admin/ArtistType/index', '讲员类型', 1, ''),
 (256, 'admin', 1, 'Admin/Server/index', '服务器管理', 1, ''),
 (257, 'admin', 2, 'Admin/Songs/index1', '音乐', -1, ''),
 (258, 'admin', 1, 'Admin/Songs/ recycle', '回收站', -1, ''),
@@ -850,10 +850,10 @@ CREATE TABLE IF NOT EXISTS `jy_channel` (
 INSERT INTO `jy_channel` (`id`, `pid`, `title`, `url`, `sort`, `create_time`, `update_time`, `status`, `target`) VALUES
 (1, 0, '首页', '/', 1, 1430851833, 1463248458, 1, 0),
 (2, 0, '专辑', '/album', 2, 1430851833, 1467362889, 1, 0),
-(3, 0, '艺术家', '/artist', 3, 1430851833, 1467362897, 1, 0),
-(4, 0, '歌曲分类', '/genre', 4, 1430851833, 1467505873, 1, 0),
-(5, 0, '歌曲标签', '/tag', 5, 1430851833, 1467362913, 1, 0),
-(6, 0, '歌曲排行', '/ranks', 8, 1453186436, 1467362939, 1, 0),
+(3, 0, '讲员', '/artist', 3, 1430851833, 1467362897, 1, 0),
+(4, 0, '音频分类', '/genre', 4, 1430851833, 1467505873, 1, 0),
+(5, 0, '音频标签', '/tag', 5, 1430851833, 1467362913, 1, 0),
+(6, 0, '音频排行', '/ranks', 8, 1453186436, 1467362939, 1, 0),
 (7, 0, '娱乐资讯', '/article', 6, 1430851833, 1467362921, 1, 0);
 
 -- --------------------------------------------------------
@@ -923,10 +923,10 @@ INSERT INTO `jy_config` (`id`, `name`, `type`, `title`, `group`, `extra`, `remar
 (43, 'USER_MUSICUP_DRIVER', 4, '前台上传音乐驱动', 0, 'local:本地\r\nftp:FTP服务器\r\nqiniu:七牛\r\naliyun:阿里云\r\n', '前台用户音乐上传驱动设置，请配置相应驱动，本地无需配置', 1410701765, 1465640928, 1, 'local', 3),
 (44, 'MUSIC_POSITION', 3, '音乐推荐位', 5, '', '音乐推荐位，格式【数字：位置名称+回车键】  数字为递增倍数，推荐到多个位置数字值相加即可', 1410702159, 1410702298, 1, '1:网站推荐\r\n2:精品推荐\r\n4:独家发布\r\n8:火热舞曲\r\n16:开场音乐\r\n', 1),
 (45, 'ALBUM_POSITION', 3, '专辑推荐位', 5, '15', '专辑推荐位，格式【数字：位置名称+回车键】  数字为递增倍数，推荐到多个位置数字值相加即可', 1410702212, 1410702312, 1, '1:首页推荐\r\n2:列表推荐\r\n', 2),
-(46, 'ARTIST_POSITION', 3, '艺术家推荐位', 5, '', '艺术家推荐位，格式【数字：位置名称+回车键】  数字为递增倍数，推荐到多个位置数字值相加即可', 1410702268, 1410702268, 1, '1:首页推荐\r\n2:列表推荐', 3),
+(46, 'ARTIST_POSITION', 3, '讲员推荐位', 5, '', '讲员推荐位，格式【数字：位置名称+回车键】  数字为递增倍数，推荐到多个位置数字值相加即可', 1410702268, 1410702268, 1, '1:首页推荐\r\n2:列表推荐', 3),
 (55, 'USER_PICUP_DRIVER', 4, '前台上传图片驱动', 0, 'local:本地\r\nftp:FTP服务器\r\nqiniu:七牛\r\naliyun:阿里云\r\n', '设置用户上传图片文件驱动（不包括文本编辑器）请配置相应驱动，本地无需配置', 1413706776, 1466349414, 1, 'local', 13),
 (47, 'WEB_OFF_MSG', 2, '站点关闭提示', 1, '', '关闭站点后的提示信息', 1410702742, 1410702742, 1, '系统维护，请稍后访问~~~', 8),
-(48, 'JYMUSIC_UPDATE_TIME', 0, 'JYmusic更新时间', 4, '', '', 1410732630, 1451253543, 0, '20160825', 4),
+(48, 'JYMUSIC_UPDATE_TIME', 0, 'JYmusic更新时间', 4, '', '', 1410732630, 1451253543, 0, '20160729', 4),
 (49, 'ARTICLE_BIND_CATEGORY', 0, '绑定分类', 0, '', '内容模型绑定的栏目分类，填写分类表示或分类id，用于默认显示', 1410732716, 1467152172, 1, '1', 1),
 (50, 'JYMUSIC_VERSION', 1, 'JYmusic版本号', 4, '', '', 1410732822, 1451253430, 0, 'JYmusic_1.1.1', 6),
 (51, 'SONGS_IMPORT_PATH', 1, '批量导入音乐路径', 5, '', '批量导入音乐数据的地址必须/结尾', 1410759851, 1417227068, 1, './Uploads/Import/', 11),
@@ -951,11 +951,11 @@ INSERT INTO `jy_config` (`id`, `name`, `type`, `title`, `group`, `extra`, `remar
 (72, 'USER_UPMUSIC_PATH', 1, '用户音乐上传目录', 0, '', '文件保存路径,格式：xx/ 确保目录存在，或根目录可写权限''', 1420726474, 1466349250, 1, 'Uploads/UserUp/', 10),
 (73, 'USER_UPMUSIC_MAX', 0, '用户音乐上传最大值', 7, '', '上传的文件大小限制 (0-不做限制，默认20M)，单位字节，最大值取决于php.ini允许的最大值', 1420726717, 1466349835, 1, '20971520', 6),
 (75, 'USER_UPPIC_MAX', 0, '用户上传图片最大值', 7, '', '上传的文件大小限制 (0-不做限制，默认2M)，单位字节，最大值取决于php.ini允许的最大值', 1420727100, 1420727100, 1, '2097152', 7),
-(76, 'SONG_COVER_SIZE', 0, '歌曲封面尺寸', 7, '', '歌曲封面处理缩略尺寸，格式（40,40），宽度-高度', 1420727432, 1420727547, 1, '40,40', 8),
-(77, 'ARTIST_COVER_SIZE', 0, '艺术家封面尺寸', 7, '', '艺术家封面处理缩略尺寸，格式（40,40），宽度-高度', 1420727748, 1420727748, 1, '120,120', 9),
-(78, 'GENRE_COVER_SIZE', 0, '曲风封面尺寸', 7, '', '曲风分类封面处理缩略尺寸，格式（40,40），宽度-高度', 1420727802, 1420727802, 1, '100,100', 11),
+(76, 'SONG_COVER_SIZE', 0, '音频封面尺寸', 7, '', '音频封面处理缩略尺寸，格式（40,40），宽度-高度', 1420727432, 1420727547, 1, '40,40', 8),
+(77, 'ARTIST_COVER_SIZE', 0, '讲员封面尺寸', 7, '', '讲员封面处理缩略尺寸，格式（40,40），宽度-高度', 1420727748, 1420727748, 1, '120,120', 9),
+(78, 'GENRE_COVER_SIZE', 0, '讲道类型封面尺寸', 7, '', '讲道类型分类封面处理缩略尺寸，格式（40,40），宽度-高度', 1420727802, 1420727802, 1, '100,100', 11),
 (79, 'USER_SKINS_PATH', 1, '用户背景图片路径', 3, '', '用户音乐上传小提示', 1420730858, 1450954404, 1, '/Public/skins', 12),
-(137, 'AUTH_MUSICIAN_SONGS', 0, '音乐人所需歌曲', 3, '', '申请认证音乐人所需歌曲数量，为0表示不限制', 1463330130, 1467333891, 1, '2', 0),
+(137, 'AUTH_MUSICIAN_SONGS', 0, '讲员所需音频', 3, '', '申请认证讲员所需音频数量，为0表示不限制', 1463330130, 1467333891, 1, '2', 0),
 (80, 'USER_UPMUSIC_EXTS', 1, '用户上传音乐后缀', 0, '', '允许用户上传音乐文件的后缀名称，\r\n多个以英文逗号隔开', 1420735906, 1466349262, 1, 'mp3', 12),
 (81, 'ALBUM_COVER_SIZE', 0, '专辑封面尺寸', 7, '', '专辑封面处理缩略尺寸，格式（40,40），宽度-高度', 1420826555, 1420826555, 1, '200,200', 10),
 (82, 'TAG_GROUP', 3, '标签分组', 5, '', '注意配置格式  1:心情   然后回车键 ', 1421597822, 1446929902, 1, '1:热门\r\n2:语言\r\n3:特色\r\n4:节日\r\n5:专题\r\n6:心情\r\n7:场景\r\n8:年代\r\n\r\n', 4),
@@ -1059,7 +1059,7 @@ CREATE TABLE IF NOT EXISTS `jy_file` (
 DROP TABLE IF EXISTS `jy_genre`;
 
 CREATE TABLE IF NOT EXISTS `jy_genre` (
-  `id` smallint(6) unsigned NOT NULL AUTO_INCREMENT COMMENT '歌曲分类ID',
+  `id` smallint(6) unsigned NOT NULL AUTO_INCREMENT COMMENT '音频分类ID',
   `name` varchar(255) NOT NULL COMMENT '分类名称',
   `pid` int(10) NOT NULL DEFAULT '0' COMMENT '父id',
   `cover_id` int(11) NOT NULL DEFAULT '0',
@@ -1175,7 +1175,7 @@ CREATE TABLE IF NOT EXISTS `jy_member` (
   `pic_id` int(11) NOT NULL DEFAULT '0',
   `songs` int(10) NOT NULL DEFAULT '0' COMMENT '添加音乐数量',
   `albums` int(10) NOT NULL DEFAULT '0' COMMENT '创建专辑数量',
-  `listens` int(10) NOT NULL DEFAULT '0' COMMENT '歌曲播放次数',
+  `listens` int(10) NOT NULL DEFAULT '0' COMMENT '音频播放次数',
   `follows` int(10) NOT NULL DEFAULT '0' COMMENT '关注数量',
   `fans` int(10) DEFAULT '0' COMMENT '粉丝数量',
   `sex` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '性别',
@@ -1250,7 +1250,7 @@ CREATE TABLE IF NOT EXISTS `jy_member_group` (
 INSERT INTO `jy_member_group` (`id`, `name`, `icon`, `app_name`, `is_auth`, `rules`, `create_time`) VALUES
 (1, '普通会员', '', 'public', 0, '', NULL),
 (2, 'VIP会员', 'vip', 'public', 0, '{"is_pay":"1","pay_mcoin":"10","pay_hycoin":"55","pay_ycoin":"100"}', NULL),
-(3, '认证音乐人', 'artist', 'public', 1, '{"is_pay":"","pay_mcoin":"","pay_hycoin":"","pay_ycoin":""}', NULL);
+(3, '认证讲员', 'artist', 'public', 1, '{"is_pay":"","pay_mcoin":"","pay_hycoin":"","pay_ycoin":""}', NULL);
 
 -- --------------------------------------------------------
 
@@ -1410,34 +1410,34 @@ INSERT INTO `jy_menu` (`id`, `title`, `pid`, `sort`, `url`, `hide`, `tip`, `grou
 (121, '排序', 76, 0, 'Channel/sort', 1, '', '', 0, '', 1),
 (122, '数据列表', 58, 0, 'think/lists', 1, '', '', 0, '', 1),
 (123, '音乐', 0, 2, 'Songs/index', 0, '', '', 0, 'music', 1),
-(124, '歌曲管理', 123, 0, 'Songs/index', 0, '', '音乐管理', 0, '', 1),
-(125, '添加', 124, 0, 'Songs/add', 0, '添加歌曲', '音乐管理', 0, '1', 1),
-(126, '修改', 124, 1, 'Songs/mod', 1, '修改歌曲', '音乐管理', 0, '', 1),
-(127, '删除', 124, 2, 'Songs/del', 1, '删除歌曲', '音乐管理', 0, '', 1),
-(128, '清空', 158, 4, 'Recycle/clear', 0, '清空回收站歌曲', '辅助功能', 0, '', 1),
+(124, '音频管理', 123, 0, 'Songs/index', 0, '', '音乐管理', 0, '', 1),
+(125, '添加', 124, 0, 'Songs/add', 0, '添加音频', '音乐管理', 0, '1', 1),
+(126, '修改', 124, 1, 'Songs/mod', 1, '修改音频', '音乐管理', 0, '', 1),
+(127, '删除', 124, 2, 'Songs/del', 1, '删除音频', '音乐管理', 0, '', 1),
+(128, '清空', 158, 4, 'Recycle/clear', 0, '清空回收站音频', '辅助功能', 0, '', 1),
 (129, '专辑管理', 123, 1, 'Album/index', 0, '专辑控制', '音乐管理', 0, 'th-large', 1),
 (130, '添加', 129, 0, 'Album/add', 1, '添加新专辑', '音乐管理', 0, '', 1),
 (131, '修改', 129, 2, 'Album/mod', 1, '修改专辑', '音乐管理', 0, '', 1),
 (132, '删除', 129, 3, 'Album/del', 1, '删除将无法恢复', '音乐管理', 0, '', 1),
-(133, '艺术家管理', 123, 3, 'Artist/index', 0, '歌手管理页面', '音乐管理', 0, 'microphone', 1),
-(134, '添加', 133, 0, 'Artist/add', 0, '添加新歌手', '音乐管理', 0, '', 1),
-(135, '修改', 133, 1, 'Artist/mod', 0, '修改歌手', '音乐管理', 0, '', 1),
+(133, '讲员管理', 123, 3, 'Artist/index', 0, '讲员管理页面', '音乐管理', 0, 'microphone', 1),
+(134, '添加', 133, 0, 'Artist/add', 0, '添加新讲员', '音乐管理', 0, '', 1),
+(135, '修改', 133, 1, 'Artist/mod', 0, '修改讲员', '音乐管理', 0, '', 1),
 (136, '删除', 133, 2, 'Artist/del', 0, '删除将无法恢复', '音乐管理', 0, '', 1),
-(137, '曲风管理', 123, 2, 'Genre/index', 0, '设置音乐分类', '音乐管理', 0, 'tags', 1),
-(138, '添加', 137, 0, 'Genre/add', 1, '添加新曲风', '音乐管理', 0, '', 1),
-(139, '修改', 137, 1, 'Genre/mod', 1, '修改曲风', '音乐管理', 0, '', 1),
+(137, '讲道类型管理', 123, 2, 'Genre/index', 0, '设置音乐分类', '音乐管理', 0, 'tags', 1),
+(138, '添加', 137, 0, 'Genre/add', 1, '添加新讲道类型', '音乐管理', 0, '', 1),
+(139, '修改', 137, 1, 'Genre/mod', 1, '修改讲道类型', '音乐管理', 0, '', 1),
 (140, '删除', 137, 2, 'Genre/del', 1, '删除将无法恢复', '音乐管理', 0, '', 1),
 (141, '专辑类型', 123, 5, 'AlbumType/index', 0, '专辑类型管理页面', '音乐管理', 0, '', 1),
 (142, '添加', 141, 1, 'AlbumType/add', 1, '添加专辑类型', '音乐管理', 0, '', 1),
 (143, '修改', 141, 2, 'AlbumType/mod', 1, '修改专辑类型', '音乐管理', 0, '', 1),
 (144, '删除', 141, 3, 'AlbumType/del', 1, '删除将无法恢复', '音乐管理', 0, '', 1),
-(145, '艺术家类型', 123, 6, 'ArtistType/index', 0, '歌手类型管理页面', '音乐管理', 0, '', 1),
-(146, '添加', 145, 1, 'ArtistType/add', 0, '添加歌手类型', '音乐管理', 0, '', 1),
-(147, '修改', 145, 2, 'ArtistType/mod', 0, '修改歌手类型', '音乐管理', 0, '', 1),
+(145, '讲员类型', 123, 6, 'ArtistType/index', 0, '讲员类型管理页面', '音乐管理', 0, '', 1),
+(146, '添加', 145, 1, 'ArtistType/add', 0, '添加讲员类型', '音乐管理', 0, '', 1),
+(147, '修改', 145, 2, 'ArtistType/mod', 0, '修改讲员类型', '音乐管理', 0, '', 1),
 (148, '删除', 145, 3, 'ArtistType/del', 0, '删除将无法恢复', '音乐管理', 0, '', 1),
 (149, '缓存静态', 69, 0, 'Config/cache', 1, '', '网站设置', 0, '', 1),
-(150, '批量导入', 123, 10, 'Songs/bulkImport', 0, '批量导入歌曲', '辅助功能', 0, '', 1),
-(151, '审核歌曲', 124, 5, 'songs/audit', 0, '审核歌曲', '音乐管理', 0, '', 1),
+(150, '批量导入', 123, 10, 'Songs/bulkImport', 0, '批量导入音频', '辅助功能', 0, '', 1),
+(151, '审核音频', 124, 5, 'songs/audit', 0, '审核音频', '音乐管理', 0, '', 1),
 (152, '信息管理', 16, 0, 'Message/index', 0, '', '用户管理', 0, '', 1),
 (153, '添加信息', 152, 0, 'Message/add', 1, '', '用户管理', 0, '', 1),
 (154, '服务器管理', 123, 8, 'Server/index', 0, '', '辅助功能', 0, '', 1),
@@ -1462,7 +1462,7 @@ INSERT INTO `jy_menu` (`id`, `title`, `pid`, `sort`, `url`, `hide`, `tip`, `grou
 (174, '新增SEO规则', 173, 0, 'Seo/add', 0, '', '系统设置', 0, '', 1),
 (175, '修改Seo规则', 173, 0, 'Seo/mod', 0, '', '系统设置', 0, '', 1),
 (176, '删除SEO规则', 173, 0, 'Seo/del', 0, '', '系统设置', 0, '', 1),
-(186, '快速新增', 124, 0, 'Songs/addall', 0, '批量添加歌曲', '音乐管理', 0, '', 1),
+(186, '快速新增', 124, 0, 'Songs/addall', 0, '批量添加音频', '音乐管理', 0, '', 1),
 (185, '修改管理用户名', 17, 0, 'User/updateUsername', 0, '', '', 0, '', 1),
 (189, '用户组管理', 16, 0, 'UserGroup/index', 0, '', '用户管理', 0, '', 1),
 (190, '添加用户组', 189, 0, 'UserGroup/add', 0, '', '', 0, '', 1),
@@ -1547,7 +1547,7 @@ DROP TABLE IF EXISTS `jy_music_tag`;
 
 CREATE TABLE IF NOT EXISTS `jy_music_tag` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `type_id` int(11) NOT NULL DEFAULT '1' COMMENT '所属音乐类型，1：歌曲, 2: 歌手,3:专辑',
+  `type_id` int(11) NOT NULL DEFAULT '1' COMMENT '所属音乐类型，1：音频, 2: 讲员,3:专辑',
   `music_id` int(11) NOT NULL DEFAULT '0',
   `tag_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -1588,7 +1588,7 @@ CREATE TABLE IF NOT EXISTS `jy_picture` (
   `uid` int(11) NOT NULL DEFAULT '0' COMMENT '所属id',
   `path` varchar(255) NOT NULL DEFAULT '' COMMENT '路径',
   `url` varchar(255) NOT NULL DEFAULT '' COMMENT '图片链接',
-  `type` int(11) NOT NULL DEFAULT '0' COMMENT '所属类型1:音乐，2：专辑，3：歌手，4：曲风，5：会员',
+  `type` int(11) NOT NULL DEFAULT '0' COMMENT '所属类型1:音乐，2：专辑，3：讲员，4：讲道类型，5：会员',
   `md5` char(32) NOT NULL DEFAULT '' COMMENT '文件md5',
   `sha1` char(40) NOT NULL DEFAULT '' COMMENT '文件 sha1编码',
   `status` tinyint(2) NOT NULL DEFAULT '0' COMMENT '状态',
@@ -1648,13 +1648,13 @@ CREATE TABLE IF NOT EXISTS `jy_seo_rule` (
 --
 
 INSERT INTO `jy_seo_rule` (`id`, `title`, `app`, `controller`, `action`, `keywords_rule`, `description_rule`, `title_rule`, `sort`, `status`) VALUES
-(12, '音乐单曲页面', 'Home', 'Music', 'detail', '{$name} - 在线试听-在线免费下载-高音质下载-{$webtitle} ', '{$name} - 在线试听-在线免费下载-高音质下载-{$webtitle} ', '{$name} - 在线试听-{$webtitle} ', 0, 1),
-(13, '艺术家页面', 'Home', 'Artist', 'index', '{$name}全部歌手 - {$webtitle}', '全部歌手 - {$webtitle}', '{$name}全部歌手 - {$webtitle}', 0, 1),
-(14, '艺术家详细页面', 'Home', 'Artist', 'detail', '{$name}-【{$name}歌曲大全】_{$name}最新歌曲_{$name}最好听的歌', '{$name}-【{$name}歌曲大全】_{$name}最新歌曲_{$name}最好听的歌', '{$name}-【{$name}歌曲大全】_{$name}最新歌曲_{$name}最好听的歌', 0, 1),
+(12, '音乐音频页面', 'Home', 'Music', 'detail', '{$name} - 在线试听-在线免费下载-高音质下载-{$webtitle} ', '{$name} - 在线试听-在线免费下载-高音质下载-{$webtitle} ', '{$name} - 在线试听-{$webtitle} ', 0, 1),
+(13, '讲员页面', 'Home', 'Artist', 'index', '{$name}全部讲员 - {$webtitle}', '全部讲员 - {$webtitle}', '{$name}全部讲员 - {$webtitle}', 0, 1),
+(14, '讲员详细页面', 'Home', 'Artist', 'detail', '{$name}-【{$name}音频大全】_{$name}最新音频_{$name}最好听的歌', '{$name}-【{$name}音频大全】_{$name}最新音频_{$name}最好听的歌', '{$name}-【{$name}音频大全】_{$name}最新音频_{$name}最好听的歌', 0, 1),
 (15, '专辑页面', 'Home', 'Album', 'index', '2015年 发行专辑列表-{$webtitle}', '2015年 发行专辑列表-{$webtitle}', '2015年 发行专辑列表-{$webtitle}', 0, 1),
 (16, '专辑详情页面', 'Home', 'Album', 'detail', '{$name}专辑,{$name}下载', '{$name}专辑,{$name}下载- {$webname}', '{$name}-{$webtitle}', 0, 1),
-(17, '曲风分类页面', 'Home', 'Genre', 'index', '风格分类-{$webtitle}', '风格分类-{$webtitle}', '风格分类-{$webtitle}', 0, 1),
-(18, '曲风详细页面', 'Home', 'Genre', 'detail', '{$name}-{$webtitle}', '{$name}-{$webtitle}', '{$name}-{$webtitle}', 0, 1),
+(17, '讲道类型分类页面', 'Home', 'Genre', 'index', '风格分类-{$webtitle}', '风格分类-{$webtitle}', '风格分类-{$webtitle}', 0, 1),
+(18, '讲道类型详细页面', 'Home', 'Genre', 'detail', '{$name}-{$webtitle}', '{$name}-{$webtitle}', '{$name}-{$webtitle}', 0, 1),
 (19, '标签页面', 'Home', 'Tag', 'index', '音乐标签-{$webtitle}', '音乐标签-{$webtitle}', '音乐标签-{$webtitle}', 0, 1),
 (20, '标签详情页', 'Home', 'Tag', 'detail', '{$name} 音乐标签- {$webtitle}', '{$name} 音乐标签- {$webtitle}', '{$name} 音乐标签- {$webtitle}', 0, 1),
 (21, '搜索页面', 'Home', 'Search', 'index', '{$webname}音乐搜索引擎', '{$webname}音乐搜索引擎', '{$webname}音乐搜索引擎', 0, 1),
@@ -1708,13 +1708,13 @@ CREATE TABLE IF NOT EXISTS `jy_site` (
 
 INSERT INTO `jy_site` (`id`, `name`, `pid`, `title`, `appname`, `content`, `template`, `update_time`, `create_time`, `status`) VALUES
 (1, 'about', 0, '关于JYmusic', 'about', 'JYmusic是Php+Mysql开发的一款开源的跨平台音乐管理系统,采用国内最优秀php框架thinkphp。程序完全免费，稳定，易于扩展且具有超强大负载能力，完全可以满足音乐、DJ、音乐分享、音乐资讯站等使用。', '', 0, 1466929310, 1),
-(2, 'copy', 0, '版权声明', 'about', '<p>\r\n	<b>版权声明：</b>\r\n</p>\r\n<p>\r\n	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JYmusic是一款 开源免费的音乐程序，我们致力解决广大音乐人，dj作者分享音乐，推广音乐的问题，免费不代表放纵\r\n</p>\r\n<p>\r\n	&nbsp;&nbsp;&nbsp; &nbsp; 在没有我们许可的情况下你无权去除网页，以及源码内部版权信息，否者我将追击其法律责任\r\n</p>\r\n<p>\r\n	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 我们不希望你能回报我们。但是应该得到最起码的尊重，所以版权部分必须保留。\r\n</p>\r\n<br />\r\n<p>\r\n	<b>联系方式:</b>\r\n</p>\r\n<p>\r\n	联系<b>QQ:378020023</b>\r\n</p>', '', 0, 1467107173, 1),
-(3, 'contact', 0, '联系我们', 'about', '<p>\r\n	<b>歌曲收录</b><br />\r\n唱片公司或网络歌手发布最新歌曲，联系<b>QQ: 378020023</b>\r\n</p>\r\n<br />\r\n<p>\r\n	<b>歌曲推广</b><br />\r\n歌曲、专辑首页图片或榜单推荐，联系<b>QQ: <b>378020023</b></b>\r\n</p>\r\n<br />\r\n<p>\r\n	<b>友情连接</b><br />\r\n网站友情连接交换，联系<b>QQ: 37802023</b>\r\n</p>\r\n<br />\r\n<b>商务合作</b><br />\r\n品牌广告投放、版权合作，联系<b>QQ: <b>378020023</b></b>', '', 0, 1467107359, 1),
+(2, 'copy', 0, '版权声明', 'about', '<p>\r\n	<b>版权声明：</b>\r\n</p>\r\n<p>\r\n	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JYmusic是一款 开源免费的音乐程序，我们致力解决广大讲员，dj作者分享音乐，推广音乐的问题，免费不代表放纵\r\n</p>\r\n<p>\r\n	&nbsp;&nbsp;&nbsp; &nbsp; 在没有我们许可的情况下你无权去除网页，以及源码内部版权信息，否者我将追击其法律责任\r\n</p>\r\n<p>\r\n	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 我们不希望你能回报我们。但是应该得到最起码的尊重，所以版权部分必须保留。\r\n</p>\r\n<br />\r\n<p>\r\n	<b>联系方式:</b>\r\n</p>\r\n<p>\r\n	联系<b>QQ:378020023</b>\r\n</p>', '', 0, 1467107173, 1),
+(3, 'contact', 0, '联系我们', 'about', '<p>\r\n	<b>音频收录</b><br />\r\n唱片公司或网络讲员发布最新音频，联系<b>QQ: 378020023</b>\r\n</p>\r\n<br />\r\n<p>\r\n	<b>音频推广</b><br />\r\n音频、专辑首页图片或榜单推荐，联系<b>QQ: <b>378020023</b></b>\r\n</p>\r\n<br />\r\n<p>\r\n	<b>友情连接</b><br />\r\n网站友情连接交换，联系<b>QQ: 37802023</b>\r\n</p>\r\n<br />\r\n<b>商务合作</b><br />\r\n品牌广告投放、版权合作，联系<b>QQ: <b>378020023</b></b>', '', 0, 1467107359, 1),
 (4, 'link', 0, '友情连接', 'about', '<p>\r\n	<b>友情连接要求：</b> \r\n</p>\r\n<p>\r\n	1、LOGO大小：90*30\r\n</p>\r\n<p>\r\n	2、违反我国现行法律的或含有令人不愉快内容的网站勿扰；\r\n</p>\r\n<p>\r\n	3、网站Alexa排名不低于10000名；\r\n</p>\r\n<p>\r\n	4、网站Google pagerank不少于3；\r\n</p>\r\n<p>\r\n	5、友情链接网站之间有义务向对方报告链接失效，文字、图片更新等问题，在解除友情链接之前亦应该通知对方；\r\n</p>\r\n<br />\r\n<p>\r\n	<b>友情连接联系QQ:378020023</b> \r\n</p>', '', 0, 1467107430, 1),
 (5, 'reg', 0, '如何注册', 'help', '点击上方注册按钮', '', 0, 1467110133, 1),
 (6, 'questions', 0, '常见问题', 'help', '常见问题', '', 0, 1467113553, 1),
 (7, 'feedback', 0, '反馈建议', 'help', '反馈建议', '', 0, 1467113865, 1),
-(8, 'ver', 0, '认证音乐人', 'help', '认证音乐人', '', 0, 1467114053, 1);
+(8, 'ver', 0, '认证讲员', 'help', '认证讲员', '', 0, 1467114053, 1);
 
 -- --------------------------------------------------------
 
@@ -1743,8 +1743,8 @@ CREATE TABLE IF NOT EXISTS `jy_slider` (
 --
 
 INSERT INTO `jy_slider` (`id`, `title`, `description`, `cover_id`, `img_url`, `link_title`, `link`, `level`, `status`, `create_time`) VALUES
-(1, '星势力榜“最具影响力歌曲', '也许你与星势力榜首期活动擦肩而过，也许你频频打榜失败，也许，你只是差一个方法！', 0, 'http://service.ixingtu.com/ixtres/news/20160516/185745717476.jpg', '', 'http://jyuu.cn', 0, 1, 1465493188),
-(2, 'Alan Walker携新作强势归来', 'Alan Walker发行了抖腿舞曲风格新作', 0, 'http://p3.music.126.net/QpXyha6XTURpWML3p0UyBg==/3413983610342275.jpg', '', 'http://jyuu.cn', 0, 1, 1465493313);
+(1, '星势力榜“最具影响力音频', '也许你与星势力榜首期活动擦肩而过，也许你频频打榜失败，也许，你只是差一个方法！', 0, 'http://service.ixingtu.com/ixtres/news/20160516/185745717476.jpg', '', 'http://jyuu.cn', 0, 1, 1465493188),
+(2, 'Alan Walker携新作强势归来', 'Alan Walker发行了抖腿舞讲道类型格新作', 0, 'http://p3.music.126.net/QpXyha6XTURpWML3p0UyBg==/3413983610342275.jpg', '', 'http://jyuu.cn', 0, 1, 1465493313);
 
 -- --------------------------------------------------------
 
@@ -1755,15 +1755,15 @@ INSERT INTO `jy_slider` (`id`, `title`, `description`, `cover_id`, `img_url`, `l
 DROP TABLE IF EXISTS `jy_songs`;
 
 CREATE TABLE IF NOT EXISTS `jy_songs` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '歌曲ID',
-  `name` varchar(255) NOT NULL COMMENT '歌曲名字',
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '音频ID',
+  `name` varchar(255) NOT NULL COMMENT '音频名字',
   `genre_id` smallint(8) unsigned NOT NULL DEFAULT '0' COMMENT '所属分类ID',
   `genre_name` varchar(255) DEFAULT NULL,
   `album_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '所属专辑ID',
   `album_name` varchar(255) DEFAULT NULL COMMENT '所属专辑',
   `order_id` tinyint(3) NOT NULL DEFAULT '0' COMMENT '专辑里的顺序',
-  `artist_id` int(10) NOT NULL DEFAULT '0' COMMENT '所属歌手ID',
-  `artist_name` varchar(255) NOT NULL DEFAULT '网络' COMMENT '所属歌手',
+  `artist_id` int(10) NOT NULL DEFAULT '0' COMMENT '所属讲员ID',
+  `artist_name` varchar(255) NOT NULL DEFAULT '网络' COMMENT '所属讲员',
   `tags` varchar(255) DEFAULT NULL COMMENT '所属标签',
   `cover_id` int(11) NOT NULL DEFAULT '0',
   `cover_url` varchar(255) DEFAULT NULL COMMENT '封面地址',
@@ -1814,7 +1814,7 @@ CREATE TABLE IF NOT EXISTS `jy_songs_extend` (
   `disk_url` varchar(255) DEFAULT NULL COMMENT '网盘下载吗',
   `disk_pass` char(16) DEFAULT NULL COMMENT '网盘密码',
   `down_rule` varchar(500) DEFAULT NULL,
-  `lrc` text COMMENT '歌词',
+  `lrc` text COMMENT '字幕',
   `introduce` text COMMENT '灵感',
   PRIMARY KEY (`mid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -1852,7 +1852,7 @@ CREATE TABLE IF NOT EXISTS `jy_tag` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '标签id',
   `name` varchar(255) NOT NULL COMMENT '标签名称',
   `alias` varchar(255) DEFAULT NULL COMMENT '别名',
-  `count` int(11) NOT NULL DEFAULT '0' COMMENT '标签歌曲数量',
+  `count` int(11) NOT NULL DEFAULT '0' COMMENT '标签音频数量',
   `group` tinyint(4) NOT NULL DEFAULT '0' COMMENT '所属标签组',
   `add_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
   `status` tinyint(2) NOT NULL DEFAULT '1',

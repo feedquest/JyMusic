@@ -15,7 +15,7 @@
 						<ul class="horizontal_list l_width_divider row clearfix pt_10">
 							<li class="f_md_none  t_align_c col-lg-4">
 								<strong><JY:count artist_id="$data['id']" /></strong>
-								<span>首歌曲</span>
+								<span>首音频</span>
 							</li>
 							<li class="f_md_none t_align_c col-lg-4">
 								<strong><JY:count name="album" artist_id="$data['id']" /></strong>
@@ -39,12 +39,12 @@
 				</div>
 				
 			</aside>
-			<!--右侧歌曲列表-->			
+			<!--右侧音频列表-->			
 			<section class="col-sm-8 mb_10">
 				<div class="clearfix  pt_10">
-					<h3 class="f_left"> <{$data['name']}>- 全部歌曲</h3>
+					<h3 class="f_left"> <{$data['name']}>- 全部音频</h3>
 					<ul class="tabs_nav f_right">
-						<li class="active"><a data-toggle="tab" role="tab"  href="#song-list" >歌曲列表</a></li>
+						<li class="active"><a data-toggle="tab" role="tab"  href="#song-list" >音频列表</a></li>
 						<li><a href="<{$data['album_url']}>">专辑列表</a></li>
 						<li><a data-toggle="tab" role="tab"  href="#info">详细介绍</a></li>
 					</ul>
@@ -52,7 +52,7 @@
 				<hr>
 				<div class="tab-content">							
 					<div id="song-list" class="tab-pane fade in active">
-						<JY:songs result="lv" page="1" artist_id="$data['id']" limit="20" order="add_time">
+						<JY:songs result="lv" page="1" artist_id="$data['id']" limit="20" order="name asc">
 						<div class="mb_10 clearfix relative play_box">
 							<div class="row clearfix song_list">								
 								<span class="col-sm-5 col-xs-8">	
@@ -75,7 +75,7 @@
 						
 						<div class="row clearfix mb_5">
 							<div class="col-sm-4 clearfix ">
-								<span class="page_total">共<{$lv_total}>首歌曲</span>
+								<span class="page_total">共<{$lv_total}>首音频</span>
 							</div>
 							<div class="col-sm-8 t_align_r">
 								<ul class="horizontal_list clearfix d_inline_middle ml_10 page_list"><{$lv_page}></ul>

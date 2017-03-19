@@ -2,11 +2,6 @@
 // +-------------------------------------------------------------+
 // | Author: 战神~~巴蒂 <378020023@qq.com> <http://www.jyuu.cn>  |
 // +-------------------------------------------------------------+
-// | Update: 无双 <1718905538@qq.com> 增加了用网易API获取歌曲	 | 
-// +-------------------------------------------------------------+ 
-// | Date:2017-03-02											 |
-// +-------------------------------------------------------------+
-
 namespace Admin\Controller;
 use Think\Controller;
 class SongsController extends AdminController {
@@ -31,7 +26,7 @@ class SongsController extends AdminController {
         Cookie('__forward__',$_SERVER['REQUEST_URI']);
 		$this->assign('positions', C('MUSIC_POSITION'));  
         $this->assign('list', $list);
-        $this->meta_title = '歌曲管理';
+        $this->meta_title = '音频管理';
         $this->display();
 	}
 		
@@ -41,7 +36,7 @@ class SongsController extends AdminController {
 			$data = $model->update();
             if(false !== $data){
 				$map['uid'] = $data['up_uid'];
-				M("Member")->where($map)->setInc('songs',1);//增加上传歌曲数量
+				M("Member")->where($map)->setInc('songs',1);//增加上传音频数量
                 $this->success('新增成功！', U('index'));				
             } else {
                 $error = $model->getError();
@@ -49,7 +44,7 @@ class SongsController extends AdminController {
             }			
         } else {
 			$this->assign('positions', C('MUSIC_POSITION'));  
-			$this->meta_title = '添加歌曲';			
+			$this->meta_title = '添加音频';			
 			$this->display();
         }
 	}
@@ -74,19 +69,19 @@ class SongsController extends AdminController {
 			$data['down_rule'] 	= json_decode($data['down_rule'],1);
 			$this->assign('positions', C('MUSIC_POSITION'));  
             $this->assign('data', $data);
-			$this->meta_title = '修改歌曲';
+			$this->meta_title = '修改音频';
 			$this->display('add');
         }
 	}
 
-	/*批量新增歌曲*/
+	/*批量新增音频*/
 	public function addall(){
 		if(IS_POST){
             $model = D('Songs');			
 			$data = $model->update();			
             if(false !== $data){
 				$map['uid'] =$data['up_uid'];
-				M("Member")->where($map)->setInc('songs',1);//增加上传歌曲数量                
+				M("Member")->where($map)->setInc('songs',1);//增加上传音频数量                
 				$return['name'] 	= I('post.name');
 				$return['status'] 	= 1;				
 				$this->ajaxReturn($return);				
@@ -95,7 +90,7 @@ class SongsController extends AdminController {
                 $this->error(empty($error) ? '未知错误！' : $error);
             }			
         } else {
-			$this->meta_title = '批量添加歌曲';			
+			$this->meta_title = '批量添加音频';			
 			$this->display();
 		}
 	}
@@ -162,7 +157,7 @@ class SongsController extends AdminController {
 				if ($artist_id = $model->add($data)){
 					$post['artist_id'] =  $artist_id;					
 				}else{
-					$this->error('歌手自动新增失败，请手动添加');	
+					$this->error('讲员自动新增失败，请手动添加');	
 				}
 			}	
 		}else{
@@ -366,7 +361,7 @@ class SongsController extends AdminController {
 					if($f <= 2){
 						$data['name'] = $mname ;//获取名称
 					}else{												
-						//处理歌曲名称包含" - "
+						//处理音频名称包含" - "
 						$names = "";
 						for($n=2;$n<$f;$n++){
 							if($n==($f-1)){
@@ -382,7 +377,7 @@ class SongsController extends AdminController {
 						
 					$data['listen_url']  = trim($newFile,'.');	
 					D('Songs')->update($data);
-					M("Member")->where(array('uid'=>$data['up_uid']))->setInc('songs',1);//增加上传歌曲数量					
+					M("Member")->where(array('uid'=>$data['up_uid']))->setInc('songs',1);//增加上传音频数量					
 					$tab = array('id' => ++$id, 'start' => 0);
 					$this->success('导入完成！', '', array('tab' => $tab));
             	}else{
@@ -405,7 +400,7 @@ class SongsController extends AdminController {
 
     }
     
-    //根据曲风创建目录
+    //根据讲道类型创建目录
     public function createGenreDir () {
     	if(IS_POST){
     		$path= C('SONGS_IMPORT_PATH');
@@ -429,7 +424,7 @@ class SongsController extends AdminController {
      	}
     
     }
-    //更改歌曲状态
+    //更改音频状态
     public function setStatus () {
     	    	
     	return parent::setStatus('Songs');
@@ -447,82 +442,5 @@ class SongsController extends AdminController {
 		return $mp3->get_metadata();	
     
 	}
-
-	/**
-	*从网易云音乐拉取音乐
-	* @author 无双
-	* date:2017-03-02
-	*/
-	public function excelMusic(){
-		if(IS_POST){
-			$model=D('songs');
-			$id = I('songId');//导入歌曲ID
-			$source = I('musicFrom');//歌曲来源
-			$lyric=$this->get_wy_lyric($id);//歌词
-			switch ($source) {
-				case '1':
-					$result=$this->get_wy_Song($id);
-					$data = array(
-						'name'=>$result['name'],//歌曲名称
-						'genre_id'=>1,//曲风ID
-						'genre_name'=>'流行',//曲风名称
-						'album_id'=>'',//专辑id，默认为空由Model类处理
-						'album_name'=>$result['album']['name'],//专辑名字
-						'order_id'=>0,//专辑里面的排序
-						'artist_id'=>0,//艺术家ID
-						'artist_name'=>$result['artists'][0]['name'],//艺术家名字
-						'tags'=>'',//歌曲标签列表
-						'cover_id'=>0,//封面ID
-						'cover_url'=>$result['artists'][0]['picUrl'],//封面地址
-						'up_uid'=>1,//上传者id
-						'up_uname'=>'',//上传者名字
-						'listen_url'=>str_replace('m2','p3',$result['mp3Url']),//试听地址
-						'down_url'=>$result['mp3Url'],//下载地址通试听地址
-						//默认全部推荐,下载1金币
-						'down_rule'=>'{"group":["0","1","2","3"],"coin":"0"}',
-						'lrc'=>$lyric?$lyric:null,//歌词自己去复制
-						'introduce'=>''//介绍自己去填
-						);
-					$res = $model->update($data);
-					break;
-				
-				case '2':
-					
-					break;
-			}
-
-			if($res){
-				$map['uid'] = $data['up_uid'];
-				M("Member")->where($map)->setInc('songs',1);//增加上传歌曲数量
-                $this->success('新增成功！', U('index'));
-			}else{
-				$error = $model->getError();
-                $this->error(empty($error) ? '未知错误！' : $error);
-			}
-		}else{
-			$this->display();	
-		}
-		
-	}
-
-	 /**
-	*网易云音乐拉取单曲API
-    */
-    public function get_wy_Song($id){
-    	$url = "http://music.163.com/api/song/detail/?id=".$id."&ids=%5B".$id."%5D";
-		$result = file_get_contents($url);
-		$result = json_decode($result,true);
-		return $result['songs'][0];
-    }
-
-    /**
-	*获取网易云歌词
-    */
-    public function get_wy_lyric($id){
-    	$url = "http://music.163.com/api/song/lyric?os=pc&id=".$id."&lv=-1&kv=-1&tv=-1";
-    	$result = file_get_contents($url);
-    	$result = json_decode($result,true);
-    	return $result['lrc']['lyric'];
-    }
             
 }

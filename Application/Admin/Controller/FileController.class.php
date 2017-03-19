@@ -7,7 +7,7 @@ namespace Admin\Controller;
  */
 class FileController extends AdminController {
 	/**
-     * 上传歌曲
+     * 上传音频
      * 
     */
     public function uploadMusic(){

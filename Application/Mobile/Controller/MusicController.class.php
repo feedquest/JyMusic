@@ -8,7 +8,7 @@ namespace Mobile\Controller;
 class MusicController extends MobileController {
 
 	public function detail($id=0) {
-		//单个歌曲显示页
+		//单个音频显示页
 		$id=(int)$id;		
 		$model =  M('Songs'); 
 		if ($id){

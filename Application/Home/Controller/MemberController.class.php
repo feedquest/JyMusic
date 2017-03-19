@@ -64,16 +64,12 @@ class MemberController extends HomeController {
 
 					if ($mailModel->send_activate_email($email,$key)){
 						$info = array(
-							'uid'				=> $uid,
-							'nickname' 			=> $username,
-							'reg_time' 			=> NOW_TIME,
-							'reg_ip' 			=> get_client_ip(1),
-							'last_login_time' 	=> NOW_TIME,
-							'birthday'			=> '1000-01-01',
-							'status' 			=> 2,
-							'cdkey'				=> $key
-						);
-								
+							'uid'		=> $uid,
+							'nickname' 	=> $username,
+							'last_login_time' => NOW_TIME,
+							'status' 	=> 2,
+							'cdkey'		=> $key
+						);						
 						$user = $memberModel->create($info);
 						$memberModel->add($user);						
 						$data['url']	= U('activate?email='.$email);
@@ -82,13 +78,13 @@ class MemberController extends HomeController {
 					}else{
 						$data['status'] = 0;
 						$data['info']   = '激活邮件发送失败，请联系网站客服！';
-					}		
+					}
+					
 				}else{
 					$memberModel->login($uid); //登录用户*/
 					$data['uid']  		= $uid;
 					$data['nickname']	= $username;
 					$data['status']  	= 1;
-					$data['url']		= U('/');
 					cookie('user',$data);
 					$data['info'] 		= '注册成功！';
 				}

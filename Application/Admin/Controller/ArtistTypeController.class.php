@@ -10,7 +10,7 @@ class ArtistTypeController extends AdminController {
         $list = $this->lists($Artisttype,null,'id desc',null);
         $this->assign('list', $list);
         Cookie('__forward__',$_SERVER['REQUEST_URI']);
-        $this->meta_title = '艺术家类型管理';
+        $this->meta_title = '讲员类型管理';
         $this->display();
 	}
 	public function add(){
@@ -29,7 +29,7 @@ class ArtistTypeController extends AdminController {
             }
         } else {
             $this->assign('info',array('pid'=>I('pid')));
-			$this->meta_title = '添加艺术家类型';
+			$this->meta_title = '添加讲员类型';
 			$this->display();
         }
 
@@ -59,7 +59,7 @@ class ArtistTypeController extends AdminController {
                 $this->error('获取后台数据信息错误');
             }
             $this->assign('data', $data);
-			$this->meta_title = '修改艺术家类型';
+			$this->meta_title = '修改讲员类型';
 			$this->display('add');
         }
 	}

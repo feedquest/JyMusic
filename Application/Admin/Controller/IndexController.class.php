@@ -12,11 +12,11 @@ class IndexController extends AdminController {
 	public function index(){		
         $count=array();	
         $S = M('Songs');
-    	$count['songs']		=  $S->count();//获取歌曲总数
+    	$count['songs']		=  $S->count();//获取音频总数
     	$count['album']		=  M('Album')->count();//获取专辑总数
-    	$count['genre']		=  M('Genre')->count();//获取曲风总数
+    	$count['genre']		=  M('Genre')->count();//获取讲道类型总数
     	$count['user']		=  M('Member')->count();//获取用户总数
-		$count['artist']	=  M('Artist')->count();//获取艺术家总数
+		$count['artist']	=  M('Artist')->count();//获取讲员总数
     	$version			= JYMUSIC_VERSION;
     	$newSong = $S->where(array('status'=>1))->field('name,add_time')->order('id desc')->limit(6)->select();
     	$msglist = M('message')->where(array('to_uid'=>0))->field('create_time,content')->order('id desc')->limit(6)->select();    	    	    	

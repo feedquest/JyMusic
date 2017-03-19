@@ -38,7 +38,7 @@ class HomeController extends UserController {
 
     }
     
-    //用户歌曲
+    //用户音频
     public function share($uid=0){	
 		$this->setUser($uid);
     	$this->meta_title = $this->user['nickname'].'的分享 - '.C('WEB_SITE_TITLE');

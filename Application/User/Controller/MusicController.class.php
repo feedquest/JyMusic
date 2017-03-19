@@ -35,7 +35,7 @@ class MusicController extends UserController {
 		//dump($ListenRecord);
 	    if(!empty($ListenRecord)){//判断是否有试听记录
 		    $map['id']  = array('in',$ListenRecord);
-    		$list = $this->lists('Songs',$map,'id desc','id,name,up_uid,up_uname,artist_id,artist_name,album_id,album_name,genre_name,genre_id,listens,rater,add_time');//获取歌曲数据集
+    		$list = $this->lists('Songs',$map,'id desc','id,name,up_uid,up_uname,artist_id,artist_name,album_id,album_name,genre_name,genre_id,listens,rater,add_time');//获取音频数据集
     		$this->assign('list', $list);
     	}    	
     	$this->meat_title = '试听记录 - '.C('WEB_SITE_TITLE');
@@ -65,7 +65,7 @@ class MusicController extends UserController {
         }*/
 		$count = $model->where($map)->count();
 		if(intval($count) >= $share_num){
-			 $this->error('每天只允许分享'.$share_num.'首歌曲'); 
+			 $this->error('每天只允许分享'.$share_num.'首音频'); 
 		}		
 		if(IS_POST){   
 			//清空上传缓存

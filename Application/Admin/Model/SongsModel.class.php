@@ -18,8 +18,8 @@ class SongsModel extends Model {
         array('name', 'require', '名称不能为空', self::MUST_VALIDATE ,'regex', self::MODEL_BOTH),
 		//array('name','','名称已经存在！',0,'unique',1), // 在新增的时候验证name字段是否唯一
         array('listen_url', 'require', '试听地址不能为空', self::MUST_VALIDATE , 'regex', self::MODEL_BOTH),
-        //array('artist_name', 'require', '所属艺术家不能为空', self::MUST_VALIDATE , 'regex', self::MODEL_BOTH),
-        //array('genre_name', 'require', '所属曲风不能为空', self::MUST_VALIDATE , 'regex', self::MODEL_BOTH),
+        //array('artist_name', 'require', '所属讲员不能为空', self::MUST_VALIDATE , 'regex', self::MODEL_BOTH),
+        //array('genre_name', 'require', '所属讲道类型不能为空', self::MUST_VALIDATE , 'regex', self::MODEL_BOTH),
     );
 
     protected $_auto = array(
@@ -51,7 +51,7 @@ class SongsModel extends Model {
 		}
 	}
 	
-	//获取/新增艺术家
+	//获取/新增讲员
 	protected function getArtistId($id){				
 		$name = $this->artist_name;
 		if (!empty($name)){
@@ -75,7 +75,7 @@ class SongsModel extends Model {
 		}		
 	}
 	
-	//获取/新增艺术家
+	//获取/新增讲员
 	protected function getAlbumName($name){
 		if (!empty($name)){
 			$this->album_name = $name;
@@ -138,7 +138,7 @@ class SongsModel extends Model {
     }    
 
 	/**
-    * 获取曲风id
+    * 获取讲道类型id
     */  
     function getGnreId($id) {
 		if ($id){			
@@ -150,7 +150,7 @@ class SongsModel extends Model {
     }	
     
    	/**
-    * 获取曲风名称
+    * 获取讲道类型名称
     */  
     function getGnreName() {
 		if ($this->genre_id){
@@ -226,7 +226,6 @@ class SongsModel extends Model {
         if(!$data){ //数据对象创建错误
             return false;
         }
-
 		$post['down_rule']['coin']	= $data['coin'];
 		$extend= array(
 			'listen_url'	=> 	$post['listen_url'],
@@ -245,21 +244,15 @@ class SongsModel extends Model {
 		);
         /* 添加或更新数据 */
         if(empty($data['id'])){					
-            //检测是否存在歌曲
+            //检测是否存在音频
 			$map['artist_name'] = $post['artist_name'];
 			$map['name'] = $post['name'];
 			if ($this->where($map)->getField('status') == 1){
-				$this->error="歌曲已存在";
+				$this->error="音频已存在";
 				return false;
 			}
 			$res = $this->add();
-			if ($res){	
-				//判断是否为网易云音乐ID
-				if(is_numeric($extend['listen_url'])){
-					$extend['listen_url']=$this->getSong($extend['listen_url']);
-					$extend['down_url']=!empty($post['down_url'])?$post['down_url']:$extend['listen_url'];
-				}	
-
+			if ($res){			
 				$extend['mid'] = $res;
 				M('SongsExtend')->add($extend);
 				$model = D('Tag');			

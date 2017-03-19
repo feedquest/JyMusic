@@ -13,7 +13,7 @@
 			<a href="<{:U('vip')}>"> 开通VIP</a>
 		</li>
 		<li>
-			<a href="<{:U('auth/musician')}>"> 认证音乐人</a>
+			<a href="<{:U('auth/musician')}>"> 认证讲员</a>
 		</li>
 	</ul>
 	<div class="tab-content clearfix">
@@ -21,9 +21,9 @@
 		<p class="mb_10">你的昵称：<{$user['nickname']}></p>
 		<p class="mb_10">账户等级：
 			<if condition="is_musician($user['uid'])">
-			<span class="d_inline_b text-danger"><i class="jy jy-round-music">音乐人</i></span>
+			<span class="d_inline_b text-danger"><i class="jy jy-round-music">讲员</i></span>
 			<else/>
-			<a class="ml_10 text-info" href="<{:U('auth/musician')}>">[去认证音乐人]</a>
+			<a class="ml_10 text-info" href="<{:U('auth/musician')}>">[去认证讲员]</a>
 			</if>
 			<if condition="is_vip($user['uid'])">
 			<span class="d_inline_b ml_10 text-info"><i class="jy jy-vip-o"></i> VIP会员<a class="ml_10 text-info" href="<{:U('vip')}>">[续费]</a></span>

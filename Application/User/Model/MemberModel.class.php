@@ -58,8 +58,6 @@ class MemberModel extends RelationModel {
 		$day 		= intval(I('post.day'));
 		if (!empty($year) ||!empty($month) || !empty($month) ){
 			$birthday	= $year .'-'. $month .'-'.$day;
-		}else{
-			$birthday = '1000-01-01';
 		}
 		return $birthday;
 	}

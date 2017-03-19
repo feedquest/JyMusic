@@ -21,7 +21,7 @@ class ArtistController extends AdminController {
         Cookie('__forward__',$_SERVER['REQUEST_URI']);
 		$this->assign('positions', C('ARTIST_POSITION')); 
         $this->assign('list', $list);
-        $this->meta_title = '艺术家管理';
+        $this->meta_title = '讲员管理';
         $this->display();
 	}
 	public function add(){
@@ -35,7 +35,7 @@ class ArtistController extends AdminController {
             }	
         } else {
             $this->assign('positions', C('ARTIST_POSITION'));
-			$this->meta_title = '添加歌手';
+			$this->meta_title = '添加讲员';
 			$this->display();
         }
 
@@ -49,7 +49,7 @@ class ArtistController extends AdminController {
 				//判读是否更新了名称
 				$name=  M('Songs')->where(array('artist_id' =>$res['id']))->field('artist_name')->find();
 				if (!empty($name) && $name !== $res['name']){
-					//更新全部歌曲
+					//更新全部音频
 					M('Songs')->where(array('artist_id'=>$res['id']))->setField('artist_name',$res['name']);					
 					//更新全部专辑
 					M('Album')->where(array('artist_id'=>$res['id']))->setField('artist_name',$res['name']);
@@ -70,7 +70,7 @@ class ArtistController extends AdminController {
             }
 			$this->assign('positions', C('ARTIST_POSITION'));
             $this->assign('data', $data);
-			$this->meta_title = '修改艺术家';
+			$this->meta_title = '修改讲员';
 			$this->display('add');
         }
 	}

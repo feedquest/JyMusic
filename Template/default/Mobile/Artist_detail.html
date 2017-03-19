@@ -18,7 +18,7 @@
 				<span class="info_dt"><{$data.region|default="未知"}></span>
 			</li>
 			<li>
-				<span class="info_ti">歌曲数量:</span>
+				<span class="info_ti">音频数量:</span>
 				<span class="info_dt"><JY:count artist_id="$data['id']" /></span>
 			</li>
 			<li>
@@ -37,13 +37,13 @@
 
 <div class="tour_div tabs">
 	<div class="tour_title tc0">
-		<a class="show_tab active" href="#tab1"><{$data['name']}>新歌</a>
+		<a class="show_tab active" href="#tab1"><{$data['name']}>新音频</a>
 		<a class="show_tab" href="#tab2"><{$data['name']}>专辑 </a>
 		<!--a class="tour_more">>></a-->
 	</div>
 	<div class="tab_con in" id="tab1">
 		<ul class="song_con">
-			<JY:songs result="v" artist_id="$data['id']" limit="20" order="add_time">
+			<JY:songs result="v" artist_id="$data['id']" limit="20" order="name asc">
 			<li>
 				<span class="numb"><{$i}></span>
 				<a class="sname text-ellipsis" title="<{$v['name']}>" href="<{$v['url']}>"><{$v['name']}></a>

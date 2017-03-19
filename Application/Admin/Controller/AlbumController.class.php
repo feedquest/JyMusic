@@ -62,7 +62,7 @@ class AlbumController extends AdminController {
 				//判读是否更新了名称
 				$name=  M('Songs')->where(array('album_id' =>$res['id']))->field('album_name')->find();
 				if (!empty($name) && $name !== $res['name']){
-					//更新全部歌曲
+					//更新全部音频
 					M('Songs')->where(array('album_id'=>$res['id']))->setField('album_name',$res['name']);
 				}	
                 $this->success('编辑成功！',Cookie('__forward__'));
@@ -108,7 +108,7 @@ class AlbumController extends AdminController {
         }
         $map['id'] = array('in',$ids);
 		$res  = D('album')->where($map)->setField('status',$status);
-		if ($res){ // 设置对应专辑歌曲的状态
+		if ($res){ // 设置对应专辑音频的状态
 			foreach ($ids as $v){			
 				D('Songs')->where(array('album_id'=>$v))->setField('status',$status);
 			}

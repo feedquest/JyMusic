@@ -3,9 +3,9 @@
 <link rel="stylesheet" type="text/css" href="__STATIC__/bootstrap-3.1.1/tagsinput/bootstrap-tagsinput.css">
 </block>
 <block name="content">
-<h3>歌曲管理</h3>
+<h3>音频管理</h3>
 <div class="panel panel-default">
-	<div class="panel-heading">批量添加歌曲</div>
+	<div class="panel-heading">批量添加音频</div>
  	<div class="panel-body">
 		<div class="alert alert-success text-center">水平线以上为公用参数，可无限添加，注意：中途可修改任意参数</div>
 		<div class="clearfix form-horizontal  mb-sm" id="show-song">
@@ -13,7 +13,7 @@
 		</div>	
         <form class="form-horizontal" id="all-form" enctype="multipart/form-data" action="<{:U()}>" name="songs"  method="post">	
 			<div class="form-group">	
-    			<label class="col-sm-2 control-label">所属艺术家</label>
+    			<label class="col-sm-2 control-label">所属讲员</label>
     			<div class="col-sm-2">				
     				<div class="input-group">
     					<input type="text" class="hide" id="artist-id" name="artist_id" value="<{$data.artist_id|default='0'}>">	
@@ -56,7 +56,7 @@
 					</select>
 				</div>	
 	
-				<label class="col-sm-1 control-label">所属曲风</label>
+				<label class="col-sm-1 control-label">所属讲道类型</label>
 				<div class="col-sm-2">
 					<select name="genre_id" class="form-control">					
 	        		<volist name=":get_genre_tree()" id="genre">	        			
@@ -101,7 +101,7 @@
 			<hr>
 			
 			<div class="form-group">	
-				<label class=" col-sm-2 control-label">歌曲名称</label>
+				<label class=" col-sm-2 control-label">音频名称</label>
 				<div class="col-sm-3">
 					<input  type="text"  name="name" value="" class="form-control">					
 				</div>

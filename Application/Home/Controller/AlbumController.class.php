@@ -24,13 +24,22 @@ class AlbumController extends HomeController {
 		
     }
     //获取指定类型专辑数据
-    public function type($id=0){	
-		if ((int)$id && $data = M('AlbumType')->field('id,name,description')->find($id)){
+    public function type($id=0){
+    	if ((int)$id){
+	    	$Albumtype =  M('AlbumType'); 
+			//数据中查询指定的ID记录
+			$type=$Albumtype->field('id,name')->select();
+			if(empty($type)) $this->error('你访问的专辑类型不存在');	
+
+	    	$data = $Albumtype->where(array('id='.$id))->field('name,description')->find();	    	
+	    	
+
 			$this->getSeoMeta();
 	    	$this->assign('data', $data);
+	    	$this->assign('list', $list);
 			$this->display('type');
 		}else {
-		 	$this->error('你访问的专辑类型不存在！');
+		 	$this->error('你访问的页面不存在！');
 		}
     }
 	

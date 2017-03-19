@@ -1,6 +1,6 @@
 <extend name="Public/base"/>
 <block name="content">
-<h3 class="col-md-4">艺术家管理</h3>
+<h3 class="col-md-4">讲员管理</h3>
 <div class="col-lg-4">
     <div class="col-sm-8">
 	    <div class="input-group">
@@ -18,7 +18,7 @@
 </div>
 <div class="col-md-4">
 	<div class="input-group mb-lg search-form">
-    	<input type="text" class="form-control search-input" name="title" value="" placeholder="请输入艺术家名称">
+    	<input type="text" class="form-control search-input" name="title" value="" placeholder="请输入讲员名称">
     	<a class="input-group-addon btn" id="search" url="<{:U('Artist/index',false,false)}>">
         	<i class="fa-search fa" ></i>
     	</a>
@@ -27,7 +27,7 @@
 <div class="row">
     <div class="col-lg-12">
     	<div class="panel panel-default">
-       		<div class="panel-heading ">艺术家列表
+       		<div class="panel-heading ">讲员列表
 				<div class="btn-group ml-lg">
        				推荐位[<a class="mr-sm ml-sm <empty name="Think.get.pos">text-danger</empty>" href="<{:U('index')}>"> 全部</a>
 					<foreach name="positions" item="pos" key="k" >
@@ -54,7 +54,7 @@
                           		</div>
                        		</th> 
                         	<th>ID</th>
-        					<th>艺术家名称</th>
+        					<th>讲员名称</th>
         					<th>所属类型</th>
         					<th>所属地区</th>
         					<th>索引</th>

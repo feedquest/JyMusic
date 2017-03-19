@@ -11,7 +11,7 @@ class MusicController extends HomeController {
 	
 	//初始操作
 	public function detail($id=0) {
-		//单个歌曲显示页
+		//单个音频显示页
 		$id				= (int)$id;		
 		$model 			= M('Songs'); 
 		$map['status']	= 1;
@@ -35,7 +35,7 @@ class MusicController extends HomeController {
 			$this->getSeoMeta('detail',$song['name']);
 			$this->display('detail');
     	}else{
-    		$this->error('你访问的歌曲不存在！');
+    		$this->error('你访问的音频不存在！');
     	}
 		
 	}

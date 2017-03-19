@@ -3,7 +3,7 @@
   // 用PHP进行音频文件头部信息的读取与写入
   // 目前只支持 WMA 和 MP3 两种格式, 只支持常用的几个头部信息
   //
-  // 写入信息支持: Title(名称), Artist(艺术家), Copyright(版权), Description (描述)
+  // 写入信息支持: Title(名称), Artist(讲员), Copyright(版权), Description (描述)
   //               Year(年代),  Genre (流派),   AlbumTitle (专辑标题)
   // 其中 mp3 和 wma 略有不同, 具体返回的信息还可能更多, 但只有以上信息可以被写入
   // mp3 还支持 Track (曲目编号写入)

@@ -5,7 +5,7 @@
 namespace Home\Controller;
 
 /**
- * 前台曲风数据处理
+ * 前台讲道类型数据处理
  */
 class GenreController extends HomeController {
     //获取音乐数据

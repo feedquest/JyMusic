@@ -15,7 +15,7 @@ class AlbumModel extends Model {
 	
 	protected $_validate = array(
         array('name', 'require', '名称不能为空', self::MUST_VALIDATE ,'regex', self::MODEL_BOTH),
-        array('artist_name', 'require', '所属艺术家不能为空', self::MUST_VALIDATE , 'regex', self::MODEL_BOTH),
+        array('artist_name', 'require', '所属讲员不能为空', self::MUST_VALIDATE , 'regex', self::MODEL_BOTH),
     );
 
     protected $_auto = array(
@@ -66,7 +66,7 @@ class AlbumModel extends Model {
 		}
 	}
 	
-	//获取/新增艺术家
+	//获取/新增讲员
 	protected function getArtistId($id){
 		$name = $this->artist_name;
 		if (!empty($name)){
@@ -91,7 +91,7 @@ class AlbumModel extends Model {
 	}
     
    	/**
-    * 获取曲风id
+    * 获取讲道类型id
     */  
     function getGnreId($id) {
 		if ($id){			
@@ -103,7 +103,7 @@ class AlbumModel extends Model {
     }	
     
    	/**
-    * 获取曲风名称
+    * 获取讲道类型名称
     */  
     function getGnreName() { 
 		if ($this->genre_id){

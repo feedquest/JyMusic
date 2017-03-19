@@ -338,6 +338,7 @@ class AdminController extends Controller {
 
         $OPT        =   new \ReflectionProperty($model,'options');
         $OPT->setAccessible(true);
+
         $pk         =   $model->getPk();
         if($order===null){
             //order置空

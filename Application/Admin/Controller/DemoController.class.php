@@ -21,7 +21,7 @@ class DemoController extends AdminController {
 		$albumId = 10518186;*/
 		
 		
-		//试听 api 需要上面获取歌曲id   128
+		//试听 api 需要上面获取音频id   128
 
 		/*$rate = array(32,64,128,192,320,835);
 		$ra = $rate[4];
@@ -56,7 +56,7 @@ class DemoController extends AdminController {
 		header("Content-type: text/html; charset=utf-8");
 		$keys = trim($keys);
 		if (empty($keys)){			
-			$this->error('没有填写查找的歌曲名称');
+			$this->error('没有填写查找的音频名称');
 		}
 		$keys = urlencode($keys);
 		
@@ -81,7 +81,7 @@ class DemoController extends AdminController {
 				if (!empty($audition2)){
 					$audition  = $audition2;
 				}else{
-					$this->error("没有搜索歌曲地址信息 ");	
+					$this->error("没有搜索音频地址信息 ");	
 				}				
 			}
 

@@ -14,7 +14,7 @@ class GenreController extends AdminController {
         Cookie('__forward__',$_SERVER['REQUEST_URI']);
         $this->assign('status', $status);
         $this->assign('list', $list);
-        $this->meta_title = '曲风管理';
+        $this->meta_title = '讲道类型管理';
         $this->display();
 	}
 	public function add(){
@@ -31,9 +31,9 @@ class GenreController extends AdminController {
             $this->assign('info',array('pid'=>I('pid')));
             $genres = M('Genre')->field(true)->select();
             $genres = D('Common/Tree')->toFormatTree($genres,$title = 'name');
-            $genres = array_merge(array(0=>array('id'=>0,'title_show'=>'顶级曲风')), $genres);
+            $genres = array_merge(array(0=>array('id'=>0,'title_show'=>'顶级讲道类型')), $genres);
             $this->assign('Genres', $genres);
-			$this->meta_title = '添加曲风';
+			$this->meta_title = '添加讲道类型';
 			$this->display();
         }
 
@@ -47,7 +47,7 @@ class GenreController extends AdminController {
 				//判读是否更新了名称
 				$name=  M('Songs')->where(array('genre_id' =>$res['id']))->field('genre_name')->find();
 				if (!empty($name) && $name !== $res['name']){
-					//更新全部歌曲
+					//更新全部音频
 					M('Songs')->where(array('genre_id'=>$res['id']))->setField('genre_name',$res['name']);
 					//更新全部专辑
 					M('Album')->where(array('genre_id'=>$res['id']))->setField('genre_name',$res['name']);
@@ -64,13 +64,13 @@ class GenreController extends AdminController {
             $data = M('Genre')->field(true)->find($id);
             $genres = M('Genre')->field(true)->select();
             $genres = D('Common/Tree')->toFormatTree($genres,$title = 'name');
-            $genres = array_merge(array(0=>array('id'=>0,'title_show'=>'顶级曲风')), $genres);
+            $genres = array_merge(array(0=>array('id'=>0,'title_show'=>'顶级讲道类型')), $genres);
             $this->assign('Genres', $genres);
             if(false === $data){
                 $this->error('获取后台数据信息错误');
             }
             $this->assign('data', $data);
-			$this->meta_title = '修改曲风';
+			$this->meta_title = '修改讲道类型';
 			$this->display('add');
         }
 	}

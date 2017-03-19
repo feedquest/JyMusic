@@ -2,7 +2,7 @@
 <block name="content">
 <div class="tour_div tabs">
 	<div class="tour_title tc0">
-		<a class="show_tab active" href="#tab1">新歌推荐</a>
+		<a class="show_tab active" href="#tab1">新音频推荐</a>
 		<a class="show_tab" href="#tab2">热门试听 </a>
 		<!--a class="tour_more">>></a-->
 	</div>
@@ -36,7 +36,7 @@
 
 <div class="tour_div clearfix">
 	<div class="tour_title tc0">
-		<a  href="javascript:;">新碟首发</a>
+		<a  href="javascript:;">新音频首发</a>
 		<a class="tour_more" href="<{:U('/Album')}>">更多>></a>
 	</div>
 	<JY:album result="v" limit="8" order="add_time" cache_time="86400">
@@ -51,7 +51,7 @@
 
 <div class="tour_div clearfix">
 	<div class="tour_title tc0">
-		<a  href="javascript:;">热门曲风</a>
+		<a  href="javascript:;">热门讲道类型</a>
 		<a class="tour_more" href="<{:U('/Genre')}>">更多>></a>
 	</div>
 	<div class="clearfix">
@@ -64,7 +64,7 @@
 
 <div class="tour_div clearfix">
 	<div class="tour_title tc0">
-		<a  href="javascript:;">热门歌手</a>
+		<a  href="javascript:;">热门讲员</a>
 		<a class="tour_more" href="<{:U('/Artist')}>">更多>></a>
 	</div>
 	<JY:artist result="v" limit="21" order="add_time" cache_time="86400">

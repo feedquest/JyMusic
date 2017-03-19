@@ -3,13 +3,13 @@
 <link rel="stylesheet" type="text/css" href="__STATIC__/bootstrap-fileinput/css/fileinput.css">	
 </block>
 <block name="content">
-<h3>曲风管理</h3>
+<h3>讲道类型管理</h3>
 <div class="panel panel-default">
-	<div class="panel-heading"><{:isset($data['id'])?'编辑':'新增'}>曲风</div>
+	<div class="panel-heading"><{:isset($data['id'])?'编辑':'新增'}>讲道类型</div>
  	<div class="panel-body">
 		<form class="form-horizontal" enctype="multipart/form-data" action="<{:U()}>" name="songs"  method="post">													
 			<div class="form-group">	
-				<label class="col-sm-2 control-label">曲风名称</label>
+				<label class="col-sm-2 control-label">讲道类型名称</label>
 				<div class="col-sm-2">
 					<input  type="text" name="name" class="form-control" value="<{$data.name|default=''}>" >					
 				</div>
@@ -36,7 +36,7 @@
 			</div>
     		<{:hook('upload',array('type'=>'img'))}> 
 			<div class="form-group">
-				<label class=" col-sm-2  control-label">上级曲风</label>
+				<label class=" col-sm-2  control-label">上级讲道类型</label>
 				<div class="col-sm-3">
 	    			<select name="pid" class="form-control">
 	        		<volist name="Genres" id="genre">	        			
@@ -44,7 +44,7 @@
 	        		</volist>
 	    			</select>	
 				</div>
-				<p class="help-block">所属的上级曲风</p>
+				<p class="help-block">所属的上级讲道类型</p>
 			</div>		
     		<div class="form-group">	
     			<label class="col-sm-2 control-label">是否推荐</label>

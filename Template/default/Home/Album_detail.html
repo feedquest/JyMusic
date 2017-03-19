@@ -14,7 +14,7 @@
 					
 					<div class="col-sm-7">
 						<h2 class="mt_10"><i class="jy jy-cdcover mr_10"></i><{$data.name}></h2>						
-						<p class="mt_5">所属歌手:<a href="<{$data['artist_url']}>" class="color_green"><{$data['artist_name']}></a></td>
+						<p class="mt_5">所属讲员:<a href="<{$data['artist_url']}>" class="color_green"><{$data['artist_name']}></a></td>
 						<p class="mt_5">所属类型:<a href="javascript:;" class="color_grey mr_20"><{$data['type_name']}></a>
 						所属风格:<a href="<{$data['genre_url']}>" class="color_grey"><{$data['genre_name']}></a></p>
 						<p class="mt_5">发行时间:<empty name="data['pub_time']">未知<else /><{$data['pub_time']}></empty></p>
@@ -33,13 +33,13 @@
 					<!--tabs-->
 					<div class="mt_15 mb_20">						
 						<ul class="tabs_nav horizontal_list clearfix " role="tablist">
-							<li class="f_xs_none active"><a href="#ta-1" data-toggle="tab" role="tab" class=" tr_delay_hover  d_block ">歌曲列表</a></li>
+							<li class="f_xs_none active"><a href="#ta-1" data-toggle="tab" role="tab" class=" tr_delay_hover  d_block ">音频列表</a></li>
 							<li class="f_xs_none"><a href="#ta-2" data-toggle="tab" role="tab" class=" tr_delay_hover  d_block ">详细介绍</a></li>
 						</ul>
 						<hr>
 						<div class="tab-content">							
 							<div id="ta-1" class="tab-pane fade in active">
-								<JY:songs result="v" album_id="$data['id']" limit="99" order="add_time">
+								<JY:songs result="v" album_id="$data['id']" limit="99" order="name asc">
 								<div class="mb_10 clearfix relative play_box">
 									<div class="row clearfix song_list">								
 										<span class="col-sm-5 col-xs-8">	

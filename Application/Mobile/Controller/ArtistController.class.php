@@ -5,19 +5,19 @@
 namespace Mobile\Controller;
 use Think\Controller;
 /**
- * 前台艺术家数据处理
+ * 前台讲员数据处理
  */
 class ArtistController extends MobileController {
 				
-    //获取艺术家聚合数据
+    //获取讲员聚合数据
     public function index(){ 
 		$type	=	M('ArtistType')->field('id,name')->select();	
 		$this->assign('type', $type);		
-		$this->meta_title = '艺术家 - '.C('WEB_SITE_TITLE');
+		$this->meta_title = '讲员 - '.C('WEB_SITE_TITLE');
 		$this->display();
     }
 	
-	//歌手专辑
+	//讲员专辑
 	public function album($id=0){
     	$id = (int)($id);
 		$model=  M('Artist');		
@@ -33,7 +33,7 @@ class ArtistController extends MobileController {
 		}
     }
 	
-	//歌手详细
+	//讲员详细
     public function detail($id=null){
 		$id = (int)($id);		
 		$model=  M('Artist');
@@ -43,7 +43,7 @@ class ArtistController extends MobileController {
 			$data['album_url'] 	= U('/Artist/album_'.$id);			
 			//增加点击量
 			$model->where('id='.$id)->setInc('hits'); // 点击数加1
-			$this->meta_title = $data['name'].'的歌曲 - '.C('WEB_SITE_TITLE');
+			$this->meta_title = $data['name'].'的音频 - '.C('WEB_SITE_TITLE');
 			$this->assign('data', $data);
 			$this->display('detail');			
 		}else{			

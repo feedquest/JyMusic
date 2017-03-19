@@ -74,7 +74,7 @@ class SearchController extends HomeController {
 	   			case 6	:
 	   				$map['lrc'] = array('like',"%{$keys}%");
 	    	 		$list = $this->lists('Songs',$map,null,'lrc');
-	    	 		$typename = "歌词";
+	    	 		$typename = "字幕";
 	   			break;
 	   				    		
 	    		default:	    	 	

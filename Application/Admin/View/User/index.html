@@ -37,7 +37,7 @@
         				<th>积分</th>
 						<th>金币</th>
 						<th>VIP</th>
-						<th>音乐人</th>
+						<th>讲员</th>
         				<th>登录次数</th>
         				<th>最后登录时间</th>
         				<th>最后登录IP</th>
@@ -70,7 +70,7 @@
 							</td>
 							<td>
 								<if condition="is_musician($vo['uid'])">
-								<a href="<{:U('UserGroup/removeUser?gid=3&uid='.$vo['uid'])}>" class="btn btn-labeled btn-danger btn-sm ajax-get confirm">移除音乐人</a>
+								<a href="<{:U('UserGroup/removeUser?gid=3&uid='.$vo['uid'])}>" class="btn btn-labeled btn-danger btn-sm ajax-get confirm">移除讲员</a>
 								<else/>
 								<a href="<{:U('UserGroup/addUser')}>" data-uid="<{$vo['uid']}>" data-gid="3" class="btn btn-labeled btn-success btn-sm add-group">授权</a>
 								</if>
@@ -187,7 +187,7 @@
 				$('#group-modal-title').html('授权VIP');
 			}else{
 				$('#yj').prop("checked", true);
-				$('#group-modal-title').html('授权音乐人');
+				$('#group-modal-title').html('授权讲员');
 			}
 			$alert.hide();
 			$('#GroupModal').modal('show');

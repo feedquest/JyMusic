@@ -75,7 +75,7 @@ function get_category_url($info){
 
 /**
  *获取评论
- *@param  string $id  指定歌曲评论
+ *@param  string $id  指定音频评论
  *
 */
 function get_sons_comment($id,$num=null) {
@@ -86,7 +86,7 @@ function get_sons_comment($id,$num=null) {
 	return $list;
 }
 
-/*按字母索引查询歌手*/
+/*按字母索引查询讲员*/
 function get_sort_artist (){	
 	return M('Artist')->field(true)->group('sort')->select();
 }
@@ -94,7 +94,7 @@ function get_sort_artist (){
 
 
 /**
- *获取曲风
+ *获取讲道类型
  *
 */
 function get_genre($num=null) {
@@ -105,7 +105,7 @@ function get_genre($num=null) {
 }
 
 /**
- *获取专辑的所有歌曲
+ *获取专辑的所有音频
  *
 */
 function get_Album_songs($id=null) {
@@ -122,9 +122,9 @@ function get_Album_songs($id=null) {
 function updated_daily() {
 	$count = array();
 	$time = strtotime(date("Y-m-d"));//获取0点的时间戳
-	$genre =  M('Genre')->where(array('pid'=>0))->select();//获取歌曲总数
+	$genre =  M('Genre')->where(array('pid'=>0))->select();//获取音频总数
 	$map['add_time'] = array('gt',$time);
-	$count['songs']  =  M('Songs')->where($map)->count();//获取歌曲总数
+	$count['songs']  =  M('Songs')->where($map)->count();//获取音频总数
 	//dump($count);
 }
 

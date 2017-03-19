@@ -52,10 +52,9 @@ class DownController extends HomeController {
 		$server_id 	= intval($data[1]);		
 		//获取文件
 		$extend = M('SongsExtend')->where(array('mid'=>$id))->field('listen_url,down_rule,down_url,disk_url,disk_pass')->find();
-		
-		$downRule			= json_decode($extend['down_rule'],1);
-		if (intval($downRule['coin'])){
-			$this->charge($id,'coin',$downRule['coin']);
+		$downCoin			= intval($extend['down_rule']['coin']);
+		if ($downCoin){
+			$this->charge($id,'coin',$downCoin);
 		}		
 		import('JYmusic.HttpDown');
 		$object = new \HttpDown();	
@@ -116,7 +115,7 @@ class DownController extends HomeController {
 			$smodel 	= M('Songs');		
 			$song = $smodel->field('id,name,server_id,artist_name,coin,score')->find($id);
 			if (empty($song)){
-				$this->error('你下载的歌曲不存在');
+				$this->error('你下载的音频不存在');
 			}	
 			$down 	= M('SongsExtend')->where(array('mid'=>$id))->field('down_rule,disk_url,disk_pass')->find(); 			
 			
@@ -144,7 +143,7 @@ class DownController extends HomeController {
 						0 => '游客',
 						1 => '普通会员',
 						2 => 'VIP会员',
-						3 => '认证音乐人'
+						3 => '认证讲员'
 					);
 					$str = "";
 					foreach ($downRule['group'] as $v){
@@ -186,7 +185,7 @@ class DownController extends HomeController {
 		if ($num < 1 || !intval($sid) || !$uid	= is_login()){
 			$thsi->error('参数错误');
 		}
-		//检测歌曲是否所需积分
+		//检测音频是否所需积分
 		$umodel 	= M('Member');
 		//24小时内下载不扣积分
 		$map['uid'] 		= $uid ;
@@ -196,11 +195,11 @@ class DownController extends HomeController {
 		if ($time > time()){		
 			return true;
 		}
-		//检测歌曲是否所需积分或金币下载
+		//检测音频是否所需积分或金币下载
 		if ($type == 'coin'){
 			$userCoin = $umodel ->getFieldByUid($uid ,'coin');//获取该用户积分
-			if ( intval($userCoin) >= $num ){//检测积分
-				$umodel->where(array('uid'=>$uid))->setDec('coin',$num); 
+			if ( intval($userCoin) >= $coin ){//检测积分
+				$Member->where(array('uid'=>$uid))->setDec('coin',$coin); 
    				return true;
 			}else{
 				$this->error('金币不足无法下载,你当前的金币为:'.$userCoin);	    				
@@ -209,8 +208,8 @@ class DownController extends HomeController {
 		}else{
 			if ($score > 0 ){//积分下载
 				$userScore = $umodel ->getFieldByUid($uid ,'score');//获取该用户积分
-				if ( intval($userScore) >= $num ){//检测积分;	
-					$umodel->where(array('uid'=>$uid))->setDec('score',$num);
+				if ( intval($userScore) >= $gold ){//检测积分;	
+					$Member->where(array('uid'=>$uid))->setDec('score',$gold);
 					return true;    				
 				}else{
 					$this->error('积分不足无法下载,你当前的积分为:'.$userScore);	    				

@@ -74,7 +74,7 @@ $(function () {
 			$playId	= that.attr('data-id');
 		//$progress.progressbar('value',0);
 
-		//设置当前歌曲播放状态
+		//设置当前音频播放状态
 		$('.play-gif').removeClass('play-ing').hide();
 		$('#song-'+$playId).find('.play-gif').show();
 		$.post(U('Music/getData'),{ id:$playId}, function(res){

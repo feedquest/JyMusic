@@ -155,7 +155,7 @@ class ME extends TagLib {
     }
 	
 	/**
-     * 艺术家标签解析 循环输出数据集
+     * 讲员标签解析 循环输出数据集
     */       
 	protected function _jionartist($tag,$content){	
 		$result		=  	isset($tag['result'])?$tag['result']:'artist';

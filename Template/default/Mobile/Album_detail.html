@@ -22,7 +22,7 @@
 				<span class="info_dt"><{$data['company']|default="未知"}></span>
 			</li>
 			<li>
-				<span class="info_ti">所属歌手:</span>
+				<span class="info_ti">所属讲员:</span>
 				<span class="info_dt"><a href="<{$data['artist_url']}>"><{$data['artist_name']}></a></span>
 			</li>
 			
@@ -36,9 +36,9 @@
 </div>
 
 <div class="tour_div">
-	<div class="tour_title tc0"><{$data['name']}>的全部歌曲</div>
+	<div class="tour_title tc0"><{$data['name']}>的全部音频</div>
 	<ul class="song_con">
-		<JY:songs result="v" album_id="$data['id']" limit="15" order="listens">
+		<JY:songs result="v" album_id="$data['id']" limit="15" order="name asc">
 		<li>
 			<span class="numb"><{$i}></span>
 			<a class="sname text-ellipsis" title="<{$v['name']}>" href="<{$v['url']}>"><{$v['name']}></a>

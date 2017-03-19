@@ -17,11 +17,11 @@
 			<div class="panel-body">
     			<form class="form-horizontal" action="<{:U('setConfig')}>"  method="post">
         			<div class="form-group">											
-        				<label class="col-sm-2 control-label">首页歌曲更新时间</label>
+        				<label class="col-sm-2 control-label">首页音频更新时间</label>
         				<div class="col-sm-2">
         					<input type="text" class="form-control" name="INDEX_SONGS_CACHE_TIME" value="<{$set.INDEX_SONGS_CACHE_TIME|default='86400'}>">
         				</div>
-        				<p class="help-block">自动更新首页歌曲时间，值为0不更新，单位秒。默认1天</p>
+        				<p class="help-block">自动更新首页音频时间，值为0不更新，单位秒。默认1天</p>
         			</div>
         			<div class="form-group">											
         				<label class="col-sm-2 control-label">侧边栏数据更新时间</label>

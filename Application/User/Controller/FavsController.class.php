@@ -10,7 +10,7 @@
 namespace User\Controller;
 class FavsController extends UserController {
     /**
-	* 收藏歌曲
+	* 收藏音频
 	*/    
     public function index(){
     	$this->meta_title = '我的收藏 - '.C('WEB_SITE_TITLE');
@@ -27,10 +27,10 @@ class FavsController extends UserController {
     
     
     /**
-	* 收藏歌手
+	* 收藏讲员
 	*/    
     public function artist(){
-    	$this->meta_title = '我的艺术家收藏 - '.C('WEB_SITE_TITLE');
+    	$this->meta_title = '我的讲员收藏 - '.C('WEB_SITE_TITLE');
 		$this->display();
     }
 }

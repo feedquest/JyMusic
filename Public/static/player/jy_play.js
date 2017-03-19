@@ -78,7 +78,7 @@ $(document).ready(function(){
     	$this = $(this);
     	var num = $this.find('.num').html();
 		$this.find('.num').html(Number(num)+1);
- 		//获取歌曲Id
+ 		//获取音频Id
  		playId = $(this).attr('data-id');
 		$.post(JYMUSIC.APP+"/Music"+JYMUSIC.DEEP+"getData.html", {"id": playId},function(data){;
 			if(data){
@@ -117,9 +117,9 @@ $(document).ready(function(){
 		return  false;
 	});
 	
-	//专辑详细页播放歌曲
+	//专辑详细页播放音频
 	$('.list_play').click(function () {
-		$('.a_s_list li:first-child').find('.jp-play-me').click();//播放第一首歌曲
+		$('.a_s_list li:first-child').find('.jp-play-me').click();//播放第一首音频
 	})
 	
 	/*专辑播放*/	
@@ -143,7 +143,7 @@ $(document).ready(function(){
 				ul.html(html).customScrollbar({preventDefaultScroll: true});
 				$('#list_mini').prev().html(title);				
 				if (!listObj.hasClass('opened') )listObj.find('.sw_button').click();
-				$('#list_mini li:first-child').find('a').click();//播放第一首歌曲
+				$('#list_mini li:first-child').find('a').click();//播放第一首音频
 				
 			}
    		}, "json");

@@ -310,7 +310,7 @@ a.jp-playlist-current:before{
 .pause .jp-play-me .fa{
 	color:#34495e;
 }
-/** 单曲播放 **/
+/** 音频播放 **/
 .bg-info.dker, .bg-info .dker {
     background-color: #2ea0b6;
 }

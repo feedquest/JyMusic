@@ -11,7 +11,7 @@ use Think\Template\TagLib;
  +-------------------------------
  * JY标签库驱动(获取数据)所有必须至少带有属性，否则不解析
  +-------------------------------
-*/
+ */
 class JY extends TagLib {
 	/*
 	+----------------------------------------------------------
@@ -39,7 +39,7 @@ class JY extends TagLib {
 		'info'   	=> array('attr'=>'id,name,category,pid,pos,type,limit,where,order,field,result','level'=>3),	 			
 	);        
     /**
-     * music 歌曲标签解析 循环输出数据集
+     * music 音频标签解析 循环输出数据集
      */       
 	public function _songs($tag,$content) {			
 		$result		=   isset($tag['result'])?$tag['result']:'songs';		
@@ -158,7 +158,7 @@ class JY extends TagLib {
 	}
     
 	/**
-	* artist 艺术家标签解析 循环输出数据集
+	* artist 讲员标签解析 循环输出数据集
 	*/   
 	public function _artist($tag,$content) {
 		$result		=   isset($tag['result'])?$tag['result']:'artist';
@@ -195,7 +195,7 @@ class JY extends TagLib {
 		return $this->_musiclist(array_merge($arr,$tag),$content);
 	}
 	/**
-	* genre 曲风标签解析 循环输出数据集
+	* genre 讲道类型标签解析 循环输出数据集
 	*/   
 	public function _genre($tag,$content) {
 		$result		=   isset($tag['result'])?$tag['result']:'genre';

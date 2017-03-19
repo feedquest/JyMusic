@@ -9,6 +9,7 @@ class IndexController extends HomeController {
 
 	//系统首页
     public function index(){
+
 		/*$size = 4047336;
 		$bit  = 64;
 		$playtime1 = 374;

@@ -39,7 +39,7 @@
                         <label class="col-lg-3 control-label">所属专辑*</label>                                
                         <div class="col-lg-4">
                             <select class="form-control" name="album" >
-							<option selected='selected' value="0">单曲</option>
+							<option selected='selected' value="0">音频</option>
 							<volist name="album" id="vo">
                           	    <option <notempty name="data['album_id']"> <if condition="$data['album_id'] eq $vo['id'] ">selected='selected'</if></notempty> value="<{$vo.id}>"><{$vo.name}></option>
                              </volist>
@@ -60,15 +60,15 @@
 		            </empty>
 
                     <div class="form-group">
-						<label class="col-md-3 control-label">歌曲歌词</label>
+						<label class="col-md-3 control-label">音频字幕</label>
 	                    <div class="col-md-8">
 	                       <textarea class="form-control" name="lrc" rows="6" placeholder=""><{$data.lrc|default=''}></textarea>
-	                       <span class="help-block">支持LRC歌词和文本歌词</span>
+	                       <span class="help-block">支持LRC字幕和文本字幕</span>
 	                    </div>
 	                </div>
 
 					<div class="form-group">
-						<label class="col-md-3 control-label">歌曲介绍</label>
+						<label class="col-md-3 control-label">音频介绍</label>
 	                    <div class="col-md-8">
 	                        <textarea class="form-control" name="signature" rows="4" placeholder="请填上传音乐的简介"><{$data.signature|default=''}></textarea>
 
@@ -123,8 +123,8 @@ $().ready(function() {
 		},
 		messages: {
 			song: {
-				required: '歌曲名称不能为空',
-				rangelength:'歌曲名称长度2-80个字符'
+				required: '音频名称不能为空',
+				rangelength:'音频名称长度2-80个字符'
 			},
 			genre: {
 				required: "请选择所属分类",

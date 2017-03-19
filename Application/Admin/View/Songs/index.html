@@ -1,7 +1,7 @@
 <extend name="Public/base"/>
 <block name="content">
 <div class="clearfix">
-	<h3 class="col-md-4 mt-sm" style="font-weight: normal;">歌曲管理</h3>
+	<h3 class="col-md-4 mt-sm" style="font-weight: normal;">音频管理</h3>
 	<div class="col-lg-4">
 		<div class="col-sm-8">
 			<div class="input-group">
@@ -19,7 +19,7 @@
 	</div> 
 	<div class="col-md-4">
 		<div class="input-group mb-lg search-form">
-			<input type="text" class="form-control search-input" name="title" value="" placeholder="请输入歌曲名称">
+			<input type="text" class="form-control search-input" name="title" value="" placeholder="请输入音频名称">
 			<a class="input-group-addon btn" id="search" url="<{:U('Songs/index')}>">
 				<i class="fa-search fa" ></i>
 			</a>
@@ -29,7 +29,7 @@
 <div class="collapse" id="ex-more" style="border:1px solid #ccc; margin:5px 0 10px; padding:10px 5px; background-color: #f5f5f5; border-radius: 3px;">
 	<form  class="form-horizontal "  id="setall-form" action="<{:U('setall')}>" method="post">
 		<div class="form-group">	
-			<label class="col-sm-1 control-label">所属曲风</label>
+			<label class="col-sm-1 control-label">所属讲道类型</label>
 			<div class="col-sm-2">
 				<select name="genre_id" class="form-control">					
 				<volist name=":get_genre_tree()" id="genre">	        			
@@ -38,7 +38,7 @@
 				</select>
 			</div>
 	
-			<label class="col-sm-1 control-label">所属艺术家</label>
+			<label class="col-sm-1 control-label">所属讲员</label>
 			<div class="col-sm-2">				
 				<!--div class="input-group">
 					<input type="text" value="" name="artist_name" id="artist-name" class="form-control">
@@ -113,11 +113,11 @@
 			<label class="col-sm-1 control-label text-center">选择字段</label>
 			<div class="col-sm-2">
 				<select name="replace_field" class="form-control">       			
-					<option value="name">歌曲名称</option>
+					<option value="name">音频名称</option>
 					<option value="cover_url">封面地址</option>
 					<option value="listen_url">试听地址</option>
 					<option value="down_url">下载地址</option>
-					<option value="lrc">歌词</option>
+					<option value="lrc">字幕</option>
 				</select>    				
 			</div>				
 
@@ -131,7 +131,7 @@
 <div class="row">
     <div class="col-lg-12">
     	<div class="panel panel-default">
-       		<div class="panel-heading">歌曲列表
+       		<div class="panel-heading">音频列表
 				<div class="btn-group ml-lg">
        				推荐位[<a class="mr-sm ml-sm <empty name="Think.get.pos">text-danger</empty>" href="<{:U('index')}>"> 全部</a>
 					<foreach name="positions" item="pos" key="k" >
@@ -142,8 +142,7 @@
        			<div class="btn-group pull-right">
 					<a class="btn btn-labeled btn-success " data-toggle="tooltip" onclick="$('#ex-more').toggle();" data-original-title="点击展开批量修改" href="javascript:;">批量修改</a>
 	       			<a class="btn btn-labeled btn-success "  href="<{:U('addall')}>">快速新增</a>
-					<a class="btn btn-labeled btn-success "  href="<{:U('add')}>">新增</a>
-					<a class="btn btn-labeled btn-success "  href="<{:U('excelMusic')}>">导入音乐</a>						
+					<a class="btn btn-labeled btn-success "  href="<{:U('add')}>">新增</a>						
 	       			<a class="btn btn-labeled btn-success ajax-post "  href="<{:U('setStatus',array('status'=>1))}>" target-form="ids">启用</a>
 	       			<a class="btn btn-labeled btn-danger ajax-post "  href="<{:U('setStatus',array('status'=>0))}>" target-form="ids">禁用</a>              
 	                <a class="btn btn-labeled btn-danger ajax-post" href="<{:U('setStatus',array('status'=>-1))}>" target-form="ids">删除</a>	                
@@ -162,10 +161,10 @@
                           		</div>
                        		</th>                   			
                 			<th>ID</th>
-                			<th>歌曲(DJ)</th>
+                			<th>音频(DJ)</th>
                 			<th>专辑</th>
-                			<th>曲风</th>
-                			<th>艺术家</th>
+                			<th>讲道类型</th>
+                			<th>讲员</th>
                 			<th>推荐位</th>
              				<th>下载数</th>
              				<th>试听数</th>

@@ -61,7 +61,7 @@ $(document).ready(function(){
     	$this = $(this);
     	var num = $this.find('.num').html();
 		$this.find('.num').html(Number(num)+1);
- 		//获取歌曲Id
+ 		//获取音频Id
  		playId = $(this).attr('data-id');
 		$.post(U("Music/getData"), {"id": playId},function(data){;
 			if(data){
@@ -71,7 +71,7 @@ $(document).ready(function(){
 				imgurl = data.cover_url;//设置封面
 				var lrc = data.lrc;
 				if(!$.type(lrc)) {
-					$('#lrc_list').html('歌词加载中....');
+					$('#lrc_list').html('字幕加载中....');
 					$('.jp-title').empty();
 					$('.lrc-content').text(lrc);
 					$.lrc.start(lrc, function() {
@@ -86,7 +86,8 @@ $(document).ready(function(){
    		   		  		
    		}, "json");
     	if (!$this.is('a')) $this = $this.closest('a');
-    	if ($this.parents('li').length > 0){
+    	if ($this.parents('li').length > 0
+){
     		 $parent = $this.parents('li')
     	}else{
     		$parent = $this.parents('.play_box')    		    		
@@ -113,9 +114,9 @@ $(document).ready(function(){
 		return  false;
 	});
 	
-	//专辑详细页播放歌曲
+	//专辑详细页播放音频
 	$('.list_play').click(function () {
-		$('.a_s_list li:first-child').find('.jp-play-me').click();//播放第一首歌曲
+		$('.a_s_list li:first-child').find('.jp-play-me').click();//播放第一首音频
 	})
 	
 	/*专辑播放*/	
@@ -139,7 +140,7 @@ $(document).ready(function(){
 				ul.html(html).customScrollbar({preventDefaultScroll: true});
 				$('#list_mini').prev().html(title);				
 				if (!listObj.hasClass('opened') )listObj.find('.sw_button').click();
-				$('#list_mini li:first-child').find('a').click();//播放第一首歌曲
+				$('#list_mini li:first-child').find('a').click();//播放第一首音频
 				
 			}
    		}, "json");
@@ -174,26 +175,26 @@ $(document).ready(function(){
 (function($){
 	$.lrc = {
 		handle: null, /* 定时执行句柄 */
-		list: [], /* lrc歌词及时间轴数组 */
-		regex: /^[^\[]*((?:\s*\[\d+\:\d+(?:\.\d+)?\])+)([\s\S]*)$/, /* 提取歌词内容行 */
-		regex_time: /\[(\d+)\:((?:\d+)(?:\.\d+)?)\]/g, /* 提取歌词时间轴 */
+		list: [], /* lrc字幕及时间轴数组 */
+		regex: /^[^\[]*((?:\s*\[\d+\:\d+(?:\.\d+)?\])+)([\s\S]*)$/, /* 提取字幕内容行 */
+		regex_time: /\[(\d+)\:((?:\d+)(?:\.\d+)?)\]/g, /* 提取字幕时间轴 */
 		regex_trim: /^\s+|\s+$/, /* 过滤两边空格 */
-		callback: null, /* 定时获取歌曲执行时间回调函数 */
+		callback: null, /* 定时获取音频执行时间回调函数 */
 		interval: 0.3, /* 定时刷新时间，单位：秒 */
 		format: '<li>{html}</li>', /* 模板 */
 		prefixid: 'lrc', /* 容器ID */
 		hoverClass: 'hover', /* 选中节点的className */
-		hoverTop: 100, /* 当前歌词距离父节点的高度 */
-		duration: 0, /* 歌曲回调函数设置的进度时间 */
-		__duration: -1, /* 当前歌曲进度时间 */
-		/* 歌词开始自动匹配 */
+		hoverTop: 100, /* 当前字幕距离父节点的高度 */
+		duration: 0, /* 音频回调函数设置的进度时间 */
+		__duration: -1, /* 当前音频进度时间 */
+		/* 字幕开始自动匹配 */
 		start: function(txt, callback) {
 			if(typeof(txt) != 'string' || txt.length < 1 || typeof(callback) != 'function') return;
-			/* 停止前面执行的歌曲 */
+			/* 停止前面执行的音频 */
 			this.stop();
 			this.callback = callback;
 			var item = null, item_time = null, html = '';
-			/* 分析歌词的时间轴和内容 */
+			/* 分析字幕的时间轴和内容 */
 			txt = txt.split("\n");
 			for(var i = 0; i < txt.length; i++) {
 				item = txt[i].replace(this.regex_trim, '');
@@ -204,7 +205,7 @@ $(document).ready(function(){
 				this.regex_time.lastIndex = 0;
 			}
  
-			/* 有效歌词 */
+			/* 有效字幕 */
 			if(this.list.length > 0) {
 				/* 对时间轴排序 */
 				this.list.sort(function(a,b){ return a[0]-b[0]; });
@@ -215,16 +216,16 @@ $(document).ready(function(){
  
 				/* 赋值到指定容器 */
 				$('#'+this.prefixid+'_list').html(html).animate({ marginTop: 0 }, 100).show();
-				/* 隐藏没有歌词的层 */
+				/* 隐藏没有字幕的层 */
 				$('#'+this.prefixid+'_nofound').hide();
-				/* 定时调用回调函数，监听歌曲进度 */
+				/* 定时调用回调函数，监听音频进度 */
 				this.handle = setInterval('$.lrc.jump($.lrc.callback());', this.interval*1000);
-			}else{ /* 没有歌词 */
+			}else{ /* 没有字幕 */
 				$('#'+this.prefixid+'_list').hide();
 				$('#'+this.prefixid+'_nofound').show();
 			}
 		},
-		/* 跳到指定时间的歌词 */
+		/* 跳到指定时间的字幕 */
 		jump: function(duration) {
 			if(typeof(this.handle) != 'number' || typeof(duration) != 'number' || !$.isArray(this.list) || this.list.length < 1) return this.stop();
  
@@ -260,7 +261,7 @@ $(document).ready(function(){
 			tmp = tmp > 0 ? tmp * -1 : 0;
 			this.animata(tmpobj.parent()[0]).animate({marginTop: tmp + 'px'}, this.interval*1000);
 		},
-		/* 停止执行歌曲 */
+		/* 停止执行音频 */
 		stop: function() {
 			if(typeof(this.handle) == 'number') clearInterval(this.handle);
 			this.handle = this.callback = null;

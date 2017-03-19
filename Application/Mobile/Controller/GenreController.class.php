@@ -5,12 +5,12 @@
 namespace Mobile\Controller;
 
 /**
- * 前台曲风数据处理
+ * 前台讲道类型数据处理
  */
 class GenreController extends MobileController {
     //获取音乐数据
     public function index(){
-		$this->meta_title = '曲风分类 - '.C('WEB_SITE_TITLE');
+		$this->meta_title = '讲道类型分类 - '.C('WEB_SITE_TITLE');
 		$this->display();
     }
     

@@ -30,7 +30,7 @@ class AuthController extends AdminController {
 			if($this->remove($id)){
 				//发送通知
 				$title = '音乐认证通知';
-				$content = '你申请的音乐人未通过审核未通过审核！';					
+				$content = '你申请的讲员未通过审核未通过审核！';					
 				D('Notice')->send($uid,$title,$content);
 				$this->success('操作成功',Cookie('__forward__'));
 			}else{
@@ -54,21 +54,21 @@ class AuthController extends AdminController {
 			$time  				= strtotime("2036-01-01");
 			if ($linkModel->where($data)->find()){
 				if (!$linkModel->where($data)->setField('end_time',$time)){
-					$this->error('音乐人通过失败1');
+					$this->error('讲员通过失败1');
 				}
 			}else{
 				$data['end_time']= $time;
 				if (!$linkModel->add($data)){
-					$this->error('音乐人通过失败');
+					$this->error('讲员通过失败');
 				}
 			}
 			S('user_glink_list',null);		
 			M('MemberAuthMusician')->where(array('uid'=>$uid))->setField('status',1);
 	        //发送通知
 			$title = '音乐认证通知';
-			$content = '你申请的音乐人成功通过审核，感谢你的支持！';						
+			$content = '你申请的讲员成功通过审核，感谢你的支持！';						
 			D('Notice')->send($uid,$title,$content);
-			$this->success('音乐人通过操作成功',Cookie('__forward__')); 
+			$this->success('讲员通过操作成功',Cookie('__forward__')); 
     	
     	}else{
     	

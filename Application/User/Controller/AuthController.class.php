@@ -12,12 +12,12 @@ class AuthController extends UserController {
 		$this->error('你访问的页面不存在');
 	}
     
-    //认证音乐人
+    //认证讲员
     public function musician(){
 		$model	= D('MemberAuthMusician');
 		
 		if (is_musician(UID)){
-			$this->error('你已经成功成为认证音乐人');
+			$this->error('你已经成功成为认证讲员');
 		}
 		$status	= $model->where(array('uid'=>UID))->getField('status');
 		if ($status == 2){
@@ -42,7 +42,7 @@ class AuthController extends UserController {
 			}
 						
 		}else{
-			$this->meta_title = '认证音乐人 - '.C('WEB_SITE_TITLE');
+			$this->meta_title = '认证讲员 - '.C('WEB_SITE_TITLE');
 			$this->display();
 		}
     }

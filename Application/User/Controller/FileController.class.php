@@ -45,7 +45,7 @@ class FileController extends UserController {
 	        		$map['down_file_id'] 	= $return['id'];
 	        		$map['_logic'] = 'OR';
 	        		$data = M('SongsExtend')->where($map)->field('mid')->find();
-	        		if (!empty($data)){ //表示重复上传已歌曲储存
+	        		if (!empty($data)){ //表示重复上传已音频储存
 						$return['status'] = 0;
 	           			$return['info']   = '文件已存在,<a style="color:#545ca6" target="_blank" href="'.U('/music/'.$data['mid']).'">查看音乐详细信息！</a>';	 
 	           		}         		

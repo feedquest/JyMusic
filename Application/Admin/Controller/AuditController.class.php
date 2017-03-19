@@ -43,7 +43,7 @@ class AuditController extends AdminController {
 				}
 				$model->where(array('mid'=>$id ))->delete(); 
 				//发送通知
-				$title = '歌曲审核通知';
+				$title = '音频审核通知';
 				$content = '你上传的音乐['.$list['name'].']未通过审核,请重新上传！';											
 				D('Notice')->send($uid,$title,$content);
 				$this->success('操作成功');				
@@ -65,9 +65,9 @@ class AuditController extends AdminController {
 
 			M('Songs')-> where(array('id'=>$id))->setField('status',1);
 	    	//M('UserUpload')->where(array($map))->save($up);
-	        M('Member')->where(array('uid'=>$uid))->setInc('songs',1);  //增加会员添加歌曲数量  
+	        M('Member')->where(array('uid'=>$uid))->setInc('songs',1);  //增加会员添加音频数量  
 	        //发送通知
-			$title = '歌曲审核通知';
+			$title = '音频审核通知';
 			$content = '你上传的音乐['.$up['music_name'].']成功通过审核！';
 			D('Notice')->send($uid,$title,$content);                   
 			$this->success('操作成功');

@@ -10,7 +10,7 @@ class AjaxController extends HomeController {
 		if (!IS_AJAX) $this->error('请求类型错误，访问失败！');
 	}
 		
-	//ajax获取歌曲
+	//ajax获取音频
 	public function getSong($artist_id=0,$album_id=0,$genre_id=0,$tag_id=0,$pos=0,$order="add_time",$limit=10,$page=1,$field=""){
 		if ((int)$artist_id){
 			$map['artist_id'] = $artist_id;

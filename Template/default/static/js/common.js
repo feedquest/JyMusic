@@ -139,6 +139,7 @@
 					offset = container.closest('[role="banner"]').hasClass('type_5') ? 0 : -container.outerHeight(),
 					menu = $('.menu_wrap'),
 					mHeight = menu.outerHeight();
+					console.log(mHeight);
 				container.waypoint(function(direction){
 					var _this = $(this);
 					if(direction == "down"){
@@ -541,6 +542,7 @@ function checkLogin () {
 	$.post(U("/Member/getUser"), function (res){
 		if(res.status) {
 			var upageUrl = U('/User/'+res.uid);
+			console.log(res.nickname);
 			$('#user-info').html('<a  href="'+upageUrl+'">'+res.nickname+'</a>');
 			$('#upage-url').attr('href',upageUrl);
 			$('.user-show').hide();

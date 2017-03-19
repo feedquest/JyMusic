@@ -43,7 +43,7 @@
 			<li><a href="<{:U('/')}>" title="JYmusic">首页</a></li>
 			<li><a href="<{:U('/Ranks')}>" title="排行榜">排行榜</a></li>
 			<li><a href="<{:U('/Album')}>" title="专辑">专辑</a></li>
-			<li><a href="<{:U('/Artist')}>" title="歌手大全">歌手大全</a></li>
+			<li><a href="<{:U('/Artist')}>" title="讲员大全">讲员大全</a></li>
 			<JY:genre result="v" limit="8" order="add_time" cache_time="86400">
 			<li><a href="<{$v['url']}>" title="<{$v['name']}>"><{$v['name']}></a></li>
 			</JY:genre>
@@ -57,7 +57,7 @@
 				<ul id="top10">
 					<li class="<if condition="CONTROLLER_NAME eq 'Index'">yesselected<else />noselected</if>"><a href="<{:U('/')}>">首页</a></li>
 					<li class="<if condition="CONTROLLER_NAME eq 'Album'">yesselected<else />noselected</if>" ><a href="<{:U('/Album')}>">专辑</a></li>
-					<li class="<if condition="CONTROLLER_NAME eq 'Artist'">yesselected<else />noselected</if>"><a href="<{:U('/Artist')}>">艺术家</a></li>
+					<li class="<if condition="CONTROLLER_NAME eq 'Artist'">yesselected<else />noselected</if>"><a href="<{:U('/Artist')}>">讲员</a></li>
 					<li class="<if condition="CONTROLLER_NAME eq 'Ranks'">yesselected<else />noselected</if>"><a href="<{:U('/Ranks')}>">排行榜</a></li>
 				</ul>
 			</div>

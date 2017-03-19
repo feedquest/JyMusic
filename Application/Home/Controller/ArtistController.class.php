@@ -5,11 +5,11 @@
 namespace Home\Controller;
 use Think\Controller;
 /**
- * 前台艺术家数据处理
+ * 前台讲员数据处理
  */
 class ArtistController extends HomeController {
 				
-    //获取艺术家聚合数据
+    //获取讲员聚合数据
     public function index(){ 
     
     	$type	=	M('ArtistType')->field('id,name')->select();	
@@ -18,7 +18,7 @@ class ArtistController extends HomeController {
 		$this->display();
     }
     
-    //按分类获取艺术家数据
+    //按分类获取讲员数据
     public function type($id = null){
 		$id 	= (int)$id;
     	$type	= 	M('ArtistType')->field('id,name')->select();  	
@@ -31,7 +31,7 @@ class ArtistController extends HomeController {
     }
 	
 		
-	//歌手专辑
+	//讲员专辑
 	public function album($id=0){
     	$id = (int)($id);
 		$model=  M('Artist');		
@@ -47,7 +47,7 @@ class ArtistController extends HomeController {
 		}
     }
 	
-	//歌手详细
+	//讲员详细
     public function detail($id=null){
 		$id = (int)($id);		
 		$model=  M('Artist');
