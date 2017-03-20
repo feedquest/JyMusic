@@ -111,7 +111,7 @@ function get_genre($num=null) {
 function get_Album_songs($id=null) {
 	if (!empty($id)){
 		$map['album_id'] = $id;
-		$list= D('Songs')->where($map)->field('name,id,artist_id,artist_name,genre_name,genre_id')->order('id desc')->select();
+		$list= D('Songs')->where($map)->field('name,id,artist_id,artist_name,genre_name,genre_id')->order('name asc')->select();
 		return $list;
 	}else{
 		return false;
