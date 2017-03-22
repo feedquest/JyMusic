@@ -28,18 +28,18 @@
 <body>
 <div id="frame">
 	<div id="top">
-		<if condition="CONTROLLER_NAME neq 'Index'">
-		<a href="javascript:window.history.back();" id="goback">
-			<img align="top" src="__TMPL__/Mobile/images/goback.png">
-		</a>
-		</if>
+		 <div >
+		 	 <img align="top" id="goback" src="__TMPL__/Mobile/images/logo-m.png" > 
+		 </div>
+		<block name="topnav">
 		<!--<a id="title" href="<{:U('/')}>"><img align="top" src="__TMPL__/images/logo.png"></a>-->
-		<form role="search" class="relative type_2" id="search_form" method="post" action="<{:U('/search')}>">
-		<input type="text" name="k" placeholder="搜索"> 
-		</form>
+		<div style="margin-left: 20px">
+		<form role="search" id="search_form" method="post" action="<{:U('/search')}>">
+		<input type="text"  name="k" placeholder="搜索讲道，讲员"> 
+		</form> </div><div>
 		<span id="list">		
 		   <a href="javascript:;" id="nav-btn"><img align="top" src="__TMPL__/Mobile/images/p0.png"></a>
-		</span>
+		</span>  </div>
 	</div>
 	<div class="disNav" id="disNav" style="display: none;">
 		<div class="arrow"><i></i></div>
