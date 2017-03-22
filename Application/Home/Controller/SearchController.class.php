@@ -13,6 +13,7 @@ class SearchController extends HomeController {
     		$typename="";
 	    	switch ($type) { 	    		
 	    		case 1	:
+	    			tag_song:
 	    			$map['name']= array('like',"%{$keys}%");
 	    	 		$list	 	= $this->lists('Songs',$map,null);
 					if (!empty($list)){
@@ -30,6 +31,7 @@ class SearchController extends HomeController {
 	   			break;
 				
 				case 2	:
+				case 9	:
 	   				$map['name']= array('like',"%{$keys}%");
 	    	 		$list 		= $this->lists('Artist',$map);
 					$tpl		= 'artist';
@@ -39,10 +41,18 @@ class SearchController extends HomeController {
 							$v['cover_url'] 	= !empty($v['cover_url'])?$v['cover_url']:"/Public/static/images/album_cover.png";			
 						}
 					}
+					else
+					{
+						if ($type == 9)
+						{
+							goto tag_album;
+						} 
+					}
 	    	 		$typename 	= "讲员";
 	   			break;
 	    		
 	    		case 3	:
+	    			tag_album:
 	    			$map['name']= array('like',"%{$keys}%");
 	    	 		$list 		= $this->lists('Album',$map);
 					if (!empty($list)){
@@ -53,6 +63,13 @@ class SearchController extends HomeController {
 							$v['type_url'] 		= U('album/type-'.$info['type_id']);
 							$v['cover_url'] 	= !empty($v['cover_url'])?$v['cover_url']:"/Public/static/images/album_cover.png";			
 						}
+					}
+					else
+					{
+						if ($type == 9)
+						{
+							goto tag_song;
+						} 
 					}
 					$tpl		= 'album';
 	    	 		$typename 	= "专辑";
