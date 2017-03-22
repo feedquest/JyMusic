@@ -21,6 +21,7 @@ class MemberModel extends Model{
         array('login', 0, self::MODEL_INSERT),
         array('reg_ip', 'get_client_ip', self::MODEL_INSERT, 'function', 1),
         array('reg_time', NOW_TIME, self::MODEL_INSERT),
+		array('birthday', '1000-01-01', self::MODEL_INSERT),
         array('last_login_ip', 0, self::MODEL_INSERT),
         array('last_login_time', 0, self::MODEL_INSERT),
         array('status', 1, self::MODEL_INSERT),
@@ -34,6 +35,7 @@ class MemberModel extends Model{
     public function login($uid){
         /* 检测是否在当前应用注册 */
         $user = $this->field(true)->find($uid);
+		
         if(!$user){ //未注册
             /* 在当前应用中注册用户 */
         	$Api = new UserApi();

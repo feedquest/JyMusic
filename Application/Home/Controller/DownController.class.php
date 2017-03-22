@@ -52,9 +52,10 @@ class DownController extends HomeController {
 		$server_id 	= intval($data[1]);		
 		//获取文件
 		$extend = M('SongsExtend')->where(array('mid'=>$id))->field('listen_url,down_rule,down_url,disk_url,disk_pass')->find();
-		$downCoin			= intval($extend['down_rule']['coin']);
-		if ($downCoin){
-			$this->charge($id,'coin',$downCoin);
+		
+		$downRule			= json_decode($extend['down_rule'],1);
+		if (intval($downRule['coin'])){
+			$this->charge($id,'coin',$downRule['coin']);
 		}		
 		import('JYmusic.HttpDown');
 		$object = new \HttpDown();	
@@ -198,8 +199,8 @@ class DownController extends HomeController {
 		//检测音频是否所需积分或金币下载
 		if ($type == 'coin'){
 			$userCoin = $umodel ->getFieldByUid($uid ,'coin');//获取该用户积分
-			if ( intval($userCoin) >= $coin ){//检测积分
-				$Member->where(array('uid'=>$uid))->setDec('coin',$coin); 
+			if ( intval($userCoin) >= $num ){//检测积分
+				$umodel->where(array('uid'=>$uid))->setDec('coin',$num); 
    				return true;
 			}else{
 				$this->error('金币不足无法下载,你当前的金币为:'.$userCoin);	    				
@@ -208,8 +209,8 @@ class DownController extends HomeController {
 		}else{
 			if ($score > 0 ){//积分下载
 				$userScore = $umodel ->getFieldByUid($uid ,'score');//获取该用户积分
-				if ( intval($userScore) >= $gold ){//检测积分;	
-					$Member->where(array('uid'=>$uid))->setDec('score',$gold);
+				if ( intval($userScore) >= $num ){//检测积分;	
+					$umodel->where(array('uid'=>$uid))->setDec('score',$num);
 					return true;    				
 				}else{
 					$this->error('积分不足无法下载,你当前的积分为:'.$userScore);	    				

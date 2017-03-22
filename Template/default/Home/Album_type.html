@@ -15,9 +15,9 @@
 								<div class="select_title  relative color_dark"><{$data['name']}> </div>
 								<ul class="select_list d_none">
 									<li class="tr_delay_hover"><a href="<{:U('/Album')}>">全部专辑</a></li>
-									<JY:albumType result="vo" cache_time="72000" >
+									<JY:altype result="vo" cache_time="72000" >
 										<li class="tr_delay_hover"><a href="<{$vo['url']}>"><{$vo.name}></a></li>
-									</JY:albumType>
+									</JY:altype>
 								</ul>
 							</div>
 						</div>

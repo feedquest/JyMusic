@@ -445,14 +445,13 @@ class DocumentModel extends Model{
 			return htmlspecialchars($con);
 		}
 		$str	= strip_tags(I('post.content'));
-		
-		
+
 		$str	= preg_replace("/\t/","",$str); //使用正则表达式替换内容，如：空格，换行，并将替换为空。
 		$str 	= preg_replace("/\r\n/","",$str); 
 		$str 	= preg_replace("/\r/","",$str); 
 		$str 	= preg_replace("/\n/","",$str); 
 		$str 	= preg_replace("/ /","",$str);
-		return msubstr($str,0,200);
+		return msubstr($str,0,130);
 		
 	}
 
