@@ -33,10 +33,12 @@
 		 </div>
 		<block name="topnav">
 		<!--<a id="title" href="<{:U('/')}>"><img align="top" src="__TMPL__/images/logo.png"></a>-->
-		<div style="margin-left: 20px">
-		<form role="search" id="search_form" method="post" action="<{:U('/search')}>">
-		<input type="text"  name="k" placeholder="搜索讲道，讲员"> 
-		</form> </div><div>
+		<div class="search_box">
+			<form role="search" id="search_form" method="post" action="<{:U('/search')}>">
+				<input class="search_input" type="text"  name="k" placeholder="搜索讲道，讲员..."> 
+			</form> 
+		</div>
+		<div>
 		<span id="list">		
 		   <a href="javascript:;" id="nav-btn"><img align="top" src="__TMPL__/Mobile/images/p0.png"></a>
 		</span>  </div>
