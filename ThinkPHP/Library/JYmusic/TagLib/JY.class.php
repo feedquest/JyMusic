@@ -647,8 +647,8 @@ class JY extends TagLib {
 			$url 	=  $name != 'Songs'? $name : 'Music';
 			$info   =  !empty($tag['data'])? $tag['data'] : 'data';
 			$parse  = '<?php ';
-			$parse .= '$' . $result. ' = M("'.$name.'")->field("id,name")->order("name")->where(array("status"=>1,"name"=> array("gt", $'.$info.'["name"])))->find();';
-			$parse .= 'if(empty($'.$result.')): $' . $result. ' = M("'.$name.'")->field("id,name")->order("name ASC")->find();?> <?php endif; ?> <?php $'.$result.'[\'url\']=U(\'/'.$url.'/\'.$'.$result.'[\'id\']); ?>  ';
+			$parse .= '$' . $result. ' = M("'.$name.'")->field("id,album_id,name")->order("name")->where(array("status"=>1,"album_id"=>$'.$info.'["album_id"],"name"=> array("gt", $'.$info.'["name"])))->find();';
+			$parse .= 'if(empty($'.$result.')): $' . $result. ' = M("'.$name.'")->field("id,name")->order("album_id, name ASC")->find();?> <?php endif; ?> <?php $'.$result.'[\'url\']=U(\'/'.$url.'/\'.$'.$result.'[\'id\']); ?>  ';
 			$parse .= $content;
 		}
 		return $parse;
@@ -669,8 +669,8 @@ class JY extends TagLib {
 			$url 	=  $name != 'Songs'? $name : 'Music';
 			$info   = !empty($tag['data'])? $tag['data'] : 'data';
 			$parse  = '<?php ';
-			$parse .= '$' . $result . ' = M("'.$name.'")->field("id,name")->order("name DESC")->where(array("status"=>1,"name"=> array("lt", $'.$info.'["name"])))->find();';
-			$parse .= 'if(empty($'.$result.')): $' . $result. ' = M("'.$name.'")->field("id,name")->order("name DESC")->find();?>  <?php endif; ?><?php $'.$result.'[\'url\']=U(\'/'.$url.'/\'.$'.$result.'[\'id\']); ?>  ';
+			$parse .= '$' . $result . ' = M("'.$name.'")->field("id,album_id,name")->order("name DESC")->where(array("status"=>1,"album_id"=>$'.$info.'["album_id"],"name"=> array("lt", $'.$info.'["name"])))->find();';
+			$parse .= 'if(empty($'.$result.')): $' . $result. ' = M("'.$name.'")->field("id,name")->order("album_id, name DESC")->find();?>  <?php endif; ?><?php $'.$result.'[\'url\']=U(\'/'.$url.'/\'.$'.$result.'[\'id\']); ?>  ';
 			$parse .= $content;
 		}
         return $parse;

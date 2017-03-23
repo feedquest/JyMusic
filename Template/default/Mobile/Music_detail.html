@@ -35,6 +35,23 @@
 		<span class="jp-duration">00:00</span>
 	</div>	
 </div>
+
+
+<div class="tour_div">
+	<div class="tour_title tc0"><{$data['album_name']}>的全部音频</div>
+	<ul class="song_con">
+		<JY:songs result="v" album_id="$data['album_id']" limit="150" order="name asc">
+		<li>
+			<span class="numb"><{$i}></span>
+			<a class="sname text-ellipsis" title="<{$v['name']}>" href="<{$v['url']}>"><{$v['name']}></a>
+			<a class="gname text-ellipsis" title="<{$v['name']}>" href="<{$v['artist_url']}>"><{$v['artist_name']}></a>
+			<a class="play" title="播放<{$v['name']}>" href="<{$v['url']}>"></a>		
+		</li>
+		</JY:songs>
+	</ul>
+	
+</div>
+
 <div class="tm_div  clearfix">
 	<div class="tour_title tc0" >热门音频</div>
 </div>
