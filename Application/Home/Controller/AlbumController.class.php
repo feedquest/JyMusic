@@ -53,8 +53,11 @@ class AlbumController extends HomeController {
 			if(empty($info))
 				$this->error('你访问的页面不存在');	
 			
+			//get artist cover 
+			$album_cover 	= "/Public/static/images/album_cover.png"; 
+
 			$model->where(array('id'=>$id))->setInc('hits'); // 点击数加1
-			$info['cover_url'] 	= !empty($info['cover_url'])?$info['cover_url']:"/Public/static/images/album_cover.png";
+			$info['cover_url'] 	= !empty($info['cover_url'])?$info['cover_url']:$album_cover;
 			$info['artist_url'] = U('artist/'.$info['artist_id']);
 			$info['genre_url'] 	= !empty($song['genre_id']) ? U('/genre/'.$song['genre_id']) : U('/genre');
 			$info['type_url'] 	= U('album/type-'.$info['type_id']);

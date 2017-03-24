@@ -1856,8 +1856,8 @@ fieldset legend .close_fieldset {
 }
 
 .artist_cover img {
-	max-height: 170px;
-	max-width: 150px
+	height: 150px;
+	width: 150px
 }
 
 .text-active,.active>.text,.active>.auto .text {

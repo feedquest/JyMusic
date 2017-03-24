@@ -178,44 +178,7 @@
 					</JY:genre>
 				</div>
 			</div>
-		</div>
-		<div class="row clearfix mb_20">
-			<div class="col-md-12">
-				<div class="clearfix new-title mb_15">
-					<h2 class=" f_left mb_10">
-						<i class="jy jy-hot-s mr_10"></i>分享达人
-						<a href="#" class="animate_ftr">/更多</a>
-					</h2>
-					<div class="f_right clearfix nav_buttons_wrap animate_fade">
-						<button class="button_type_7 bg_cs_hover f_left tr_delay_hover  bestuser_prev"><i class="jy jy-left"></i></button>
-						<button class="button_type_7 bg_cs_hover f_left ml_5 tr_delay_hover  bestuser_next"><i class="jy jy-right"></i></button>
-					</div>
-				</div>
-			
-				<div class="bestuser_carousel mb_10">
-					<JY:member result="v" limit="10" order="songs">
-					<figure class="photoframe shadow relative tr_all_hover animate_ftb t_align_c">
-						<div class="circle wrapper u_cover mb_15">
-							<a href="<{$v['url']}>" target="_blank" class="t_align_c"><img alt="<{$v['nickname']}>" src="<{$v['uid']|get_user_avatar="128"}>"></a>
-						</div>
-						<figcaption>
-							<h4 class="fw_medium color_dark"><a href="<{$v['url']}>" target="_blank"><{$v['nickname']}></a></h4>
-							<p class="mt_5">音乐：<{$v['songs']}></p>
-						</figcaption>	
-					</figure>
-					</JY:member>
-				</div>
-			</div>
-		</div>
-
-		<div class="row clearfix mb_20">
-			<div class="col-md-12">
-				<div class="clearfix new-title mb_15">
-					<h2 class=""><i class="jy jy-send-f mr_10"></i>友情链接</h2>
-				</div>
-				<ul><{:hook('pageFooter',array('widget'=>'link'))}></ul>
-			</div>
-		</div>			
+		</div> 	
 	</div>
 </div>
 </block>
