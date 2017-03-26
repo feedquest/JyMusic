@@ -43,7 +43,7 @@
 	</div>
 	<div class="tab_con in" id="tab1">
 		<ul class="song_con">
-			<JY:songs result="v" artist_id="$data['id']" limit="20" order="name asc">
+			<JY:songs result="v" artist_id="$data['id']" limit="20" order="id desc">
 			<li>
 				<span class="numb"><{$i}></span>
 				<a class="sname text-ellipsis" title="<{$v['name']}>" href="<{$v['url']}>"><{$v['name']}></a>

@@ -1,14 +1,13 @@
 <extend name="Public/common"/>
-<block name="topnav">
-<div class="tm_div  clearfix">
-	<div class="tour_title tc0" >根据网友点播系统自动生成音频排行榜</div>
-	<div class="renqi_1">
-		<ul id="top10">
-			<li class="<if condition="ACTION_NAME eq 'index'">yesselected<else />noselected</if>"><a href="<{:U('index')}>">总人气</a></li>
-			<li class="<if condition="ACTION_NAME eq 'hot'">yesselected<else />noselected</if>"><a href="<{:U('hot')}>">总推荐</a></li>
-			<li class="<if condition="ACTION_NAME eq 'down'">yesselected<else />noselected</if>"><a href="<{:U('down')}>">总下载</a></li>
-			<li class="<if condition="ACTION_NAME eq 'fav'">yesselected<else />noselected</if>"><a href="<{:U('fav')}>">总收藏</a></li>
-		</ul>
+<block name="subnav">
+<div class="tour_div tabs"> 
+	<div class="tour_title tc0">
+		 
+			<a class="<if condition="ACTION_NAME eq 'index'">active<else /> </if>"  href="<{:U('index')}>">总人气</a> 
+			<a class="<if condition="ACTION_NAME eq 'hot'">active<else /> </if>"  href="<{:U('hot')}>">总推荐</a> 
+			<a class="<if condition="ACTION_NAME eq 'down'">active<else /> </if>"  href="<{:U('down')}>">总下载</a> 
+			<a class="<if condition="ACTION_NAME eq 'fav'">active<else /> </if>"  href="<{:U('fav')}>">总收藏</a> 
+		 
 	</div>
 
 </div>	
