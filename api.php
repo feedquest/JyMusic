@@ -2503,7 +2503,7 @@ $api = new PHP_CRUD_API(array(
 	'password'=>'',
 	'database'=>'gospelfe_audio',
 	'charset'=>'utf8',
-	'table_authorizer'=>function($cmd,$db,$tab) { return (($cmd=='read'||$cmd=='list') && ($tab=='url'||$tab=='items'||$tab=='songlist'||$tab=='recommended_album_new'||$tab=='pic'||$tab=='all_albums'||$tab=='gedan_info'||$tab=='recommended_album_positioned'||$tab=='recommended_user_list')); },
+	'table_authorizer'=>function($cmd,$db,$tab) { return (($cmd=='read'||$cmd=='list') && ($tab=='url'||$tab=='items'||$tab=='songlist'||$tab=='recommended_album_new'||$tab=='pic'||$tab=='all_albums'||$tab=='all_artists'||$tab=='gedan_info'||$tab=='recommended_album_positioned'||$tab=='recommended_user_list'||$tab=='artist_info'||$tab=='jy_tag'||$tab=='search_album'||$tab=='search_artist'||$tab=='search_song')); },
 ));
 // $api->executeCommand();
 // For Microsoft SQL Server 2012 use:
